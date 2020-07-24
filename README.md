@@ -1,6 +1,6 @@
 # Today I Learned by *Owen Ramirez*
 
-React Native and JavaScriot official documentation reading personal journal
+React Native and JavaScript official documentation reading personal journal
 
 ## Week 1
 
@@ -12,8 +12,10 @@ I leard the meaning of ECMA (European Computer Manufacturers Association) and wh
 And finally how can you started writting JavaScript   
 
 
-### Fry 24, July 2020 *[Reading topic or title]*
-orem ipsum dolor sit amet consectetur adipiscing elit nulla consequat, taciti arcu volutpat mattis blandit primis natoque feugiat posuere, elementum curabitur mollis enim velit vulputate urna ut. Ultrices nisl nam nunc netus himenaeos magnis phasellus...
+### Fry 24, July 2020 *Grammar and types*
+In this reading talks about the syntax of this programming language, the three ways that you can declare and the differences of the 
+variables in JS, the ways of how can you evaluate your variable to prevent an error, the scope of your variables.
+Also talks about the data structure and the types for example null,booleans, numbers, strings, etc
 
 ### Mon 27, July 2020 *[Reading topic or title]*
 orem ipsum dolor sit amet consectetur adipiscing elit nulla consequat, taciti arcu volutpat mattis blandit primis natoque feugiat posuere, elementum curabitur mollis enim velit vulputate urna ut. Ultrices nisl nam nunc netus himenaeos magnis phasellus...
