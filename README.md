@@ -17,5 +17,9 @@ In this reading talks about the syntax of this programming language, the three w
 variables in JS, the ways of how can you evaluate your variable to prevent an error, the scope of your variables.
 Also talks about the data structure and the types for example null,booleans, numbers, strings, etc
 
-### Mon 27, July 2020 *[Reading topic or title]*
-orem ipsum dolor sit amet consectetur adipiscing elit nulla consequat, taciti arcu volutpat mattis blandit primis natoque feugiat posuere, elementum curabitur mollis enim velit vulputate urna ut. Ultrices nisl nam nunc netus himenaeos magnis phasellus...
+### Mon 27, July 2020 *RN.- Core Components and Native Components*
+I start thinking about what is React Native? In the documentation of RN says that is a framework for build and Android and iOS 
+applications using React.
+The difference between using components in Android and iOS. And with this framework we have a native components to work with this two OS called core components.
+You can see all them in the [React Native documentation](https://reactnative.dev/docs/components-and-apis) and a table with the core component that you'll mostly work (with his descriptions, how can you use that component in Android or iOS and a web analog to understand how works that component if you're familiarity on the web development) 
+
