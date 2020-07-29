@@ -43,3 +43,9 @@ As the name of this framework React native runs on React, so we can use the same
   ```  
 - **Props** let us to customize our components and make it more reusable just changing the properties of the component
 - **States** are useful for handling data that is going to change over the time  
+
+### Wed 29, July 2020 *Reac Native **Troubleshooting***
+In this section we can check the common issues when you setting up React Native, for example the port of the server (8081) that it could be use it when you start the server. To solve that problem you can kill the process in that port or if you want, you can change the port of the server. 
+Other problem it could be the missing libraries when you add it manually if you're using Xcode setting, in the documentation you can have the solution in the exactly files
+If you have an issue and you can't find it here you can search in the [issues in Github](https://github.com/facebook/react-native/issues/)  
+  
