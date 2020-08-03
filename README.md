@@ -17,7 +17,7 @@ In this reading talks about the syntax of this programming language, the three w
 variables in JS, the ways of how can you evaluate your variable to prevent an error, the scope of your variables.
 Also talks about the data structure and the types for example null,booleans, numbers, strings, etc
 
-#Week 2
+## Week 2
 
 ### Mon 27th, July 2020 *RN.- **Core Components and Native Components***
 I start thinking about what is React Native? In the documentation of RN says that is a framework for build and Android and iOS 
@@ -72,3 +72,14 @@ In this section I learn the two ways to build my first React Native app and they
   - To get started you just need lastest version of Node.js and run ```javascript npm install -g expo-cli``` to install the Expo CLI and done you can create a new proyect with ```javascript   expo init MyProject```  
 - **React Native CLI:** This is the way to start with RN if you already familiar with mobile development because you require Xcode or Android Studio to get started
   - To get started it depends of what OS are you running in the PC that you work and if you want to run in an iOS or an Android. Check the documentation to [get started](https://reactnative.dev/docs/environment-setup).  
+
+## Week 3
+
+### Mon 3rd, August 2020 *RN.- **Out-of-Tree Platforms***
+React native isn't just to build for android and iOS, there are other projects that bring RN to other platflorms for example:
+- [React Native Windows](https://github.com/Microsoft/react-native-windows)
+- [React Native DOM](https://github.com/vincentriemer/react-native-dom)
+- [React Native Turbolinks](https://github.com/lazaronixon/react-native-turbolinks)
+- [React Native Desktop](https://github.com/status-im/react-native-desktop-qt)
+- [React Native macOS](https://github.com/ptmt/react-native-macos)
+
