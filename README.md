@@ -83,3 +83,7 @@ React native isn't just to build for android and iOS, there are other projects t
 - [React Native Desktop](https://github.com/status-im/react-native-desktop-qt)
 - [React Native macOS](https://github.com/ptmt/react-native-macos)
 
+### Tues 4th, August 2020 *RN.- **Runing On Device***
+You can choose work with a virtual device or a physical device, but is good that you test your project in a physical device. 
+first it will depend if you run the project in Android or iOS and what is the OS of your machine. If you are using Expo CLI, just scan the QR code that appears when start the server 
+to know more about the instructions that you need to follow, go to [Running on device](https://reactnative.dev/docs/running-on-device) section  
