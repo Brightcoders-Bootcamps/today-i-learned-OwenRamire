@@ -87,3 +87,8 @@ React native isn't just to build for android and iOS, there are other projects t
 You can choose work with a virtual device or a physical device, but is good that you test your project in a physical device. 
 first it will depend if you run the project in Android or iOS and what is the OS of your machine. If you are using Expo CLI, just scan the QR code that appears when start the server 
 to know more about the instructions that you need to follow, go to [Running on device](https://reactnative.dev/docs/running-on-device) section  
+
+### Wed 5th, August 2020 *RN.- **Fast Refresh***
+Fast refresh is a React Native feature that allows us to watch the changes of our project in a second or two.
+This fast refresh works when you edit a module that export React componentes, if  have a module with export that isn't a React component, the fast refresh will re-run both the module and the other modules importing it.
+When fast refresh is running and if you have a syntax error you just need to fix the error and save the file and in a moment you can see the changes and the redbox will disappear    
