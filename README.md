@@ -2,6 +2,8 @@
 
 React Native and JavaScript official documentation reading personal journal
 
+[My URL github pages](https://brightcoders-bootcamps.github.io/today-i-learned-OwenRamire/)
+
 ## Week 1
 
 ### Thur 23th, July 2020 *JavaScript.- **Introduction***
