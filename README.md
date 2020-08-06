@@ -94,3 +94,13 @@ to know more about the instructions that you need to follow, go to [Running on d
 Fast refresh is a React Native feature that allows us to watch the changes of our project in a second or two.
 This fast refresh works when you edit a module that export React componentes, if  have a module with export that isn't a React component, the fast refresh will re-run both the module and the other modules importing it.
 When fast refresh is running and if you have a syntax error you just need to fix the error and save the file and in a moment you can see the changes and the redbox will disappear    
+
+### Thur 6th, August 2020 *RN.- **Testing***
+It is so important to test our projects because if there are bugs will produce bad user experience. We need to test because we can make mistakes and its better that we 
+find the bugs and not the users because we can fix those problems before we realease our app. 
+Testing the project help us to understand the codebase, also make automated testing means less time with manual testing.
+To test our apps we can chose differents ways for example: 
+- **Static Analysis: **checks our code for errors as we write it 
+- **Unit Test: ** cover the smallest part of code, like individual functions or classes
+- **Integration Test: **real individual units are combined and tested together to ensure that their cooperation works as expected. 
+- **End-to-End Test (E2E): **verify our app is working as expected on a device
