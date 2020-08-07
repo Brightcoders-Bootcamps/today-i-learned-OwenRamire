@@ -100,7 +100,12 @@ It is so important to test our projects because if there are bugs will produce b
 find the bugs and not the users because we can fix those problems before we realease our app. 
 Testing the project help us to understand the codebase, also make automated testing means less time with manual testing.
 To test our apps we can chose differents ways for example: 
-- **Static Analysis: **checks our code for errors as we write it 
-- **Unit Test: ** cover the smallest part of code, like individual functions or classes
-- **Integration Test: **real individual units are combined and tested together to ensure that their cooperation works as expected. 
-- **End-to-End Test (E2E): **verify our app is working as expected on a device
+- **Static Analysis:** checks our code for errors as we write it 
+- **Unit Test:** cover the smallest part of code, like individual functions or classes
+- **Integration Test:** real individual units are combined and tested together to ensure that their cooperation works as expected. 
+- **End-to-End Test (E2E):** verify our app is working as expected on a device
+
+### Fri 7th, August 2020 *RN.- **Using Libraries***
+With React Native you're not limited, if the core components and APIs that React Native brings to you are not enough, you can search a library that you need 
+because RN has a community of developers that develop new libraries. To do this you need a package manager (npm CLI or yarn classic) and follow the library's instructions to download the library that you need 
+ 
