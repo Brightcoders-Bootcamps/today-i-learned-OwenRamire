@@ -30,8 +30,24 @@ You can see all them in the [React Native documentation](https://reactnative.dev
 ### Tues 28th, July 2020 *RN.- **React Fundamentals***
 As the name of this framework React native runs on React, so we can use the same core concepts that React has. 
 - A **component** is a part of your code that you can split in reusable pieces. To define a component is write a  
-  function (`const *yourComponent* = () => { return(); };` or `function *yourComponent()*{ return(); };`) or it could be as a 
-  class (`class *YourClass* extends React.Component { render( { return(); } ) }`)
+  function (
+   ```javascript
+   const yourComponent = () => { 
+     return(); 
+   };
+   //or 
+  function yourComponent() {
+    return(); 
+  };
+  ```
+  ) or it could be as a class (
+  ```javascript
+  class YourClass extends React.Component {
+    render() {
+      return ();
+    }
+  ```
+)
 - **JSX** let us write inside of a component, as an example of JSX in the react native documentation
   ```javascript 
   const Cat = () => {
@@ -109,3 +125,16 @@ To test our apps we can chose differents ways for example:
 With React Native you're not limited, if the core components and APIs that React Native brings to you are not enough, you can search a library that you need 
 because RN has a community of developers that develop new libraries. To do this you need a package manager (npm CLI or yarn classic) and follow the library's instructions to download the library that you need 
  
+## Week 4
+
+### Mon 10th, August 2020 *RN.-**Upgrading to new React Native versions***
+We need to upgrade our React Native version because with the new upgrades we can use new APIs, components, dev tools, etc.
+- **Expo projects:** to upgrade our projects with expo, we require update the `react-native`, `react` and `expo` package versions in our `package.json` file. To do this go to [Upgrading Expo SDK Walkthrough](https://docs.expo.io/workflow/upgrading-expo-sdk-walkthrough/?redirected)
+- **React Native projects:** there are two ways to do this, by using React Native CLI or with Upgrade Helper.
+	- [React Native CLI](https://github.com/react-native-community/cli): this comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum conflict.
+	  Just run `npx react-native upgrade` or if you want a specific version, just pass the version as an argument like this `npx reac-native upgrade 0.61.0-rc.0`. 
+	  The project is upgraded using `git apply` with 3-way merge and it may happen that you will need to resolve a fiw conflicts. Follow the documentation in the part of [resolve the conflict](https://reactnative.dev/docs/upgrading#2-resolve-the-conflicts) to see an example.
+	- [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/): is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. After that, just follow the instructions of what do you need to modify or go to [Upgrade helper in the react native documentation](https://reactnative.dev/docs/upgrading#upgrade-helper) for more information
+   
+
+
