@@ -14,7 +14,7 @@ I leard the meaning of ECMA (European Computer Manufacturers Association) and wh
 And finally how can you started writting JavaScript   
 
 
-### Fri 24th, July 2020 * JavaScript.- **Grammar and types***
+### Fri 24th, July 2020 *JavaScript.- **Grammar and types***
 In this reading talks about the syntax of this programming language, the three ways that you can declare and the differences of the 
 variables in JS, the ways of how can you evaluate your variable to prevent an error, the scope of your variables.
 Also talks about the data structure and the types for example null,booleans, numbers, strings, etc
@@ -77,7 +77,7 @@ When you are building your app, maybe you want to make a little difference in yo
   const styles = StyleSheet.create({
     height: Platform.OS === 'ios' ? 200 : 100
   });
-  in this example if the OS is iOS the height will be 200 and if is Android will be 100
+  //in this example if the OS is iOS the height will be 200 and if is Android will be 100
   ``` 
   - select method: this give you an object where keys can be Android, iOS, native and default that returns the most fitting value for the platform
 - **Platform-specific extensions:** with this modules you can split your files as *yourFile**.ios.js*** or *yourFile**.android.js*** and 
@@ -135,6 +135,13 @@ We need to upgrade our React Native version because with the new upgrades we can
 	  Just run `npx react-native upgrade` or if you want a specific version, just pass the version as an argument like this `npx reac-native upgrade 0.61.0-rc.0`. 
 	  The project is upgraded using `git apply` with 3-way merge and it may happen that you will need to resolve a fiw conflicts. Follow the documentation in the part of [resolve the conflict](https://reactnative.dev/docs/upgrading#2-resolve-the-conflicts) to see an example.
 	- [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/): is a web tool to help you out when upgrading your apps by providing the full set of changes happening between any two versions. After that, just follow the instructions of what do you need to modify or go to [Upgrade helper in the react native documentation](https://reactnative.dev/docs/upgrading#upgrade-helper) for more information
-   
 
-
+### Tues 11th, August 2020 *RN.- **Using TypeScript***
+The oficial documentation of [TypeScript](https://www.typescriptlang.org/) says that is a language which builds on JavaScript. This language you can use it in React Native because this framework supports TypeScript. This works transforming your files to JavaScript works via Babel as a non-TypeScript React Native Project
+To get started there are differents ways, for example: 
+- With a **new project:**
+	- You can use TypeScript template, just run `npx react-native init MyApp --template react-native-template-typescript`
+	- If you work with Expo, use Ignite `ignite new MyTSProject` after install expo (`npm install -g expo-cli`)    
+- With an **existing project:**
+	- Add TypeScript to your project `npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer` or `yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer`
+	- follow the instructions of [how will you configure your files](https://reactnative.dev/docs/typescript#adding-typescript-to-an-existing-project)
