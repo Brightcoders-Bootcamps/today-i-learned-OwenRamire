@@ -145,3 +145,25 @@ To get started there are differents ways, for example:
 - With an **existing project:**
 	- Add TypeScript to your project `npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer` or `yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer`
 	- follow the instructions of [how will you configure your files](https://reactnative.dev/docs/typescript#adding-typescript-to-an-existing-project)
+
+### Wed 12th, August 2020 *RN.- **Style***
+All the core components in React Native have a style prop, with this prop you can give styles at your components. The style names and vaules usually match how CSS works on the web, 
+the only thing that change is that the names use camel casing for example if you want put a background color in CSS it'll be `background-color: red` and in React Native it'll be `backgroundColor: 'red'`.
+- You can use the styles in the component: 
+	- `<Text style={{color: 'red'}}>I'm red</Text>`   
+- Or you can use the `StyleSheet` and `StyleSheet.create()` function of react native to create a several styles:
+	- ```javascript
+	  import React from 'react';
+	  import {Text, StyleSheet} from 'react-native';
+
+	  export default const app = () => {
+	    return <Text style={styles.text}>I'm text</Text>;
+	  }
+	  
+	  const styles = StyleSheet.create({
+	    text: {
+	      color: 'red',
+	      fontSize: 30,
+	    }
+	  });
+	  ```
