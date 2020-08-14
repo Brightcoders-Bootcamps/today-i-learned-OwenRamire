@@ -167,3 +167,67 @@ the only thing that change is that the names use camel casing for example if you
 	    }
 	  });
 	  ```
+
+### Thur 13th, August 2020 *RN.- **Height and Width***
+This two properties are to determine their size on the screen. In React Native all dimensions are unitless and represent density-independent pixels.
+for example:
+```javascript
+import React from 'react';
+import {View} from 'react-native';
+
+export default const app = () => {
+  return (
+    <View>
+      <View style={{width: 50, height: 50, backgroundColor: 'red'}}/>
+      <View style={{width: 100, height: 100, backgroundColor: 'blue'}}/> 
+    </View>
+  );
+} 
+```   
+With this two props the dimensions of your components always will be the same size.
+But with **Flex dimensions** you can give at your components their size dinamically based on the available space 
+for example: 
+```javascript
+import React from 'react';
+import {View} from 'react-native';
+
+export default const app = () => {
+  return (
+    {/* This view will use all the available screen*/}
+    <View style={{flex: 1>
+      <View style={{flex: 1, backgroundColor: 'red'}}/>
+      <View style={{flex: 2, backgroundColor: 'blue'}}/>
+    </View>
+  );
+}
+
+```
+
+### Fri 14th, August 2020 *RN.- **Layout with Flexbox***
+Flexbox is designed to provide a consistent layout on different screen size. Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions, for example in React Native `flexDirection` by default is *column* instead of *row*    
+- [Flex](https://reactnative.dev/docs/flexbox#flex) with `flex` you can  define how your items are going to fill on the screen in the available space 
+  ```javascript
+  import React from 'react';
+  import {View} from 'react-native';
+  
+  export default const app = () => {
+    return (
+      /* This view will use all the available screen. 
+      The two views that are inside of this view, their space will be divided according their flex property
+      the 1st have 1 and the 2nd have 2.
+      This means that the space will be 1 + 2 = 3, the 1st will have 1/3 of the space and the 2nd will have 2/3 of the space*/
+      <View style={{flex: 1>
+	{/* This view will use 1/3 of the screen*/}
+        <View style={{flex: 1, backgroundColor: 'red'}}/>
+	{/*This view will use 2/3 of the screen*/}
+        <View style={{flex: 2, backgroundColor: 'blue'}}/>
+      </View>
+    );
+  }
+```
+- [flexDirection](https://reactnative.dev/docs/flexbox#flex-direction) this property control the direction of the children.
+- [justifyContent](https://reactnative.dev/docs/flexbox#justify-content) describe how to align children within the main axis of their container 
+- [alignItems](https://reactnative.dev/docs/flexbox#align-items) describe how to align children along the cross acis of their container
+- [alignSelf](https://reactnative.dev/docs/flexbox#align-self) the same options and effect as `alignItems` but this property affect a single child instead all the children
+- [alignContent](https://reactnative.dev/docs/flexbox#align-content) defines the distribution of lines along the cross-axis. Only affect when the items are wrapped to multiple lines using `flexWrap`
+- [flexWrap](https://reactnative.dev/docs/flexbox#flex-wrap) controls what happens when the children overflow the size of the container along the main axis
