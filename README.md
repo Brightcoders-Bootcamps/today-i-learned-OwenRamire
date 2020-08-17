@@ -1,6 +1,6 @@
 # Today I Learned by *Owen Ramirez*
 
-React Native and JavaScript official documentation reading personal journal
+[React Native](https://reactnative.dev/) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference) official documentation reading personal journal
 
 [My URL github pages](https://brightcoders-bootcamps.github.io/today-i-learned-OwenRamire/)
 
@@ -224,10 +224,25 @@ Flexbox is designed to provide a consistent layout on different screen size. Fle
       </View>
     );
   }
-```
+  ```
 - [flexDirection](https://reactnative.dev/docs/flexbox#flex-direction) this property control the direction of the children.
 - [justifyContent](https://reactnative.dev/docs/flexbox#justify-content) describe how to align children within the main axis of their container 
 - [alignItems](https://reactnative.dev/docs/flexbox#align-items) describe how to align children along the cross acis of their container
 - [alignSelf](https://reactnative.dev/docs/flexbox#align-self) the same options and effect as `alignItems` but this property affect a single child instead all the children
 - [alignContent](https://reactnative.dev/docs/flexbox#align-content) defines the distribution of lines along the cross-axis. Only affect when the items are wrapped to multiple lines using `flexWrap`
 - [flexWrap](https://reactnative.dev/docs/flexbox#flex-wrap) controls what happens when the children overflow the size of the container along the main axis
+
+## Week 5
+
+### Mon 17th, August 2020
+[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)>
+To create a new Date object:
+``` javascript var myDate = new Date([parameters])```
+- myDate will be our `Date` object
+- `Date` without `new` returns the expected date in a string representation
+- The parameters on the syntax it can be:
+        - Nothing: it will create the date and hour of today
+        - a string that represent a date in the next form: "Month Day, Year Hour:Minute:secon>
+          ```javascript var Xmas95 = new Date("December 25, 1995 13:30:00")``` if you omit hour, minute or seconds, the value will be zero 
+	- Also you can use integer values ```javascript var Xmas95 = new Date(1995, 11, 25, 9, 30, 0); // December 25th 1995 9:30:00```
+Check all the methods in [instance methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#) 
