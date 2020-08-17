@@ -193,7 +193,7 @@ import {View} from 'react-native';
 
 export default const app = () => {
   return (
-    {/* This view will use all the available screen*/}
+    // This view will use all the available screen
     <View style={{flex: 1>
       <View style={{flex: 1, backgroundColor: 'red'}}/>
       <View style={{flex: 2, backgroundColor: 'blue'}}/>
@@ -216,10 +216,8 @@ Flexbox is designed to provide a consistent layout on different screen size. Fle
       The two views that are inside of this view, their space will be divided according their flex property
       the 1st have 1 and the 2nd have 2.
       This means that the space will be 1 + 2 = 3, the 1st will have 1/3 of the space and the 2nd will have 2/3 of the space*/
-      <View style={{flex: 1>
-	{/* This view will use 1/3 of the screen*/}
+      <View style={{flex: 1}}>
         <View style={{flex: 1, backgroundColor: 'red'}}/>
-	{/*This view will use 2/3 of the screen*/}
         <View style={{flex: 2, backgroundColor: 'blue'}}/>
       </View>
     );
@@ -237,12 +235,19 @@ Flexbox is designed to provide a consistent layout on different screen size. Fle
 ### Mon 17th, August 2020
 [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)>
 To create a new Date object:
-``` javascript var myDate = new Date([parameters])```
+``` javascript 
+    var myDate = new Date([parameters])
+```
 - myDate will be our `Date` object
 - `Date` without `new` returns the expected date in a string representation
 - The parameters on the syntax it can be:
         - Nothing: it will create the date and hour of today
         - a string that represent a date in the next form: "Month Day, Year Hour:Minute:secon>
-          ```javascript var Xmas95 = new Date("December 25, 1995 13:30:00")``` if you omit hour, minute or seconds, the value will be zero 
-	- Also you can use integer values ```javascript var Xmas95 = new Date(1995, 11, 25, 9, 30, 0); // December 25th 1995 9:30:00```
+          ```javascript 
+	    var Xmas95 = new Date("December 25, 1995 13:30:00")
+	  ``` if you omit hour, minute or seconds, the value will be zero 
+	- Also you can use integer values 
+	  ```javascript
+	    var Xmas95 = new Date(1995, 11, 25, 9, 30, 0); // December 25th 1995 9:30:00
+	  ```
 Check all the methods in [instance methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#) 
