@@ -261,3 +261,13 @@ All the images require a size (width, height), if the image's size needs to be d
 - to network image:
   ``` javascript <Image source={{uri: 'https://reactjs.org/logo-og.png'}} style={{width: 400, height: 400}} /> ```
 
+### Wed 19th, August 2020 *RN.- **Color Reference***
+The colors properties usually match how CSS works on the web.
+RN support:
+- `rbg()` and `rgba()`
+- `hsl()` and `hsla()`
+- color's name (RN only supports lowercase color names. Uppercase color names aren't supported)  
+React Native has several color APIs designed to allow you to take full advantage of your platform's design and user preferences:
+- [PlatformColor](https://reactnative.dev/docs/platformcolor)
+- [DynamicColorIOS](https://reactnative.dev/docs/dynamiccolorios).
+you can check some [color keywords here](https://reactnative.dev/docs/colors#color-keywords)   
