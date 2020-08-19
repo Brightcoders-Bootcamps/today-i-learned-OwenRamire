@@ -232,8 +232,8 @@ Flexbox is designed to provide a consistent layout on different screen size. Fle
 
 ## Week 5
 
-### Mon 17th, August 2020
-[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)>
+### Mon 17th, August 2020 *JS.- **Date()***
+[Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)
 To create a new Date object:
 ``` javascript 
     var myDate = new Date([parameters])
@@ -242,8 +242,8 @@ To create a new Date object:
 - `Date` without `new` returns the expected date in a string representation
 - The parameters on the syntax it can be:
         - Nothing: it will create the date and hour of today
-        - a string that represent a date in the next form: "Month Day, Year Hour:Minute:secon>
-          ```javascript 
+        - a string that represent a date in the next form: "Month Day, Year Hour:Minute:second
+          ``` javascript 
 	    var Xmas95 = new Date("December 25, 1995 13:30:00")
 	  ``` if you omit hour, minute or seconds, the value will be zero 
 	- Also you can use integer values 
@@ -251,3 +251,13 @@ To create a new Date object:
 	    var Xmas95 = new Date(1995, 11, 25, 9, 30, 0); // December 25th 1995 9:30:00
 	  ```
 Check all the methods in [instance methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#) 
+
+### Tues 18th, August 2020 *RN.- **Images***
+React Native provides  unified way of managing images and other media assets in your apps.
+- To add a static image: 
+  ``` javascript <Image source={require('./my-image.png')} /> ```
+you could name your images like `my-image.ios.png` `my-image.android.png` and RN the will pick the correct image for the platform.   
+All the images require a size (width, height), if the image's size needs to be dynamically, you can use flex propeties. And if you need the image's size static you'll use `width: undefined height: undefined`
+- to network image:
+  ``` javascript <Image source={{uri: 'https://reactjs.org/logo-og.png'}} style={{width: 400, height: 400}} /> ```
+
