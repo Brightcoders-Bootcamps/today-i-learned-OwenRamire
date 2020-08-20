@@ -150,7 +150,9 @@ To get started there are differents ways, for example:
 All the core components in React Native have a style prop, with this prop you can give styles at your components. The style names and vaules usually match how CSS works on the web, 
 the only thing that change is that the names use camel casing for example if you want put a background color in CSS it'll be `background-color: red` and in React Native it'll be `backgroundColor: 'red'`.
 - You can use the styles in the component: 
-	- `<Text style={{color: 'red'}}>I'm red</Text>`   
+	- ``` javascript
+           <Text style={{color: 'red'}}>I'm red</Text>
+	  ```   
 - Or you can use the `StyleSheet` and `StyleSheet.create()` function of react native to create a several styles:
 	- ```javascript
 	  import React from 'react';
@@ -245,7 +247,8 @@ To create a new Date object:
         - a string that represent a date in the next form: "Month Day, Year Hour:Minute:second
           ``` javascript 
 	    var Xmas95 = new Date("December 25, 1995 13:30:00")
-	  ``` if you omit hour, minute or seconds, the value will be zero 
+	  ``` 
+	  if you omit hour, minute or seconds, the value will be zero 
 	- Also you can use integer values 
 	  ```javascript
 	    var Xmas95 = new Date(1995, 11, 25, 9, 30, 0); // December 25th 1995 9:30:00
@@ -255,11 +258,15 @@ Check all the methods in [instance methods](https://developer.mozilla.org/en-US/
 ### Tues 18th, August 2020 *RN.- **Images***
 React Native provides  unified way of managing images and other media assets in your apps.
 - To add a static image: 
-  ``` javascript <Image source={require('./my-image.png')} /> ```
+  ``` javascript 
+      <Image source={require('./my-image.png')} /> 
+  ```
 you could name your images like `my-image.ios.png` `my-image.android.png` and RN the will pick the correct image for the platform.   
 All the images require a size (width, height), if the image's size needs to be dynamically, you can use flex propeties. And if you need the image's size static you'll use `width: undefined height: undefined`
 - to network image:
-  ``` javascript <Image source={{uri: 'https://reactjs.org/logo-og.png'}} style={{width: 400, height: 400}} /> ```
+  ``` javascript 
+      <Image source={{uri: 'https://reactjs.org/logo-og.png'}} style={{width: 400, height: 400}} />
+  ```
 
 ### Wed 19th, August 2020 *RN.- **Color Reference***
 The colors properties usually match how CSS works on the web.
@@ -271,3 +278,19 @@ React Native has several color APIs designed to allow you to take full advantage
 - [PlatformColor](https://reactnative.dev/docs/platformcolor)
 - [DynamicColorIOS](https://reactnative.dev/docs/dynamiccolorios).
 you can check some [color keywords here](https://reactnative.dev/docs/colors#color-keywords)   
+
+### Thur 20th, August 2020 *RN.- **Handling Touches***
+The users interact with our apps through touch. RN provide us components to handle that touches, but in this section the most intersted part is the buttons.
+We can create a button like this: 
+```javascript
+  <Button onPress={() => {
+    alert('You tapped me ')
+    }} 
+    title='Press me'
+  />
+``` 
+But you can use more Touchable components to build your own buttons that React Native provide you. Example of these components are: 
+- [TouchableHighlight](https://reactnative.dev/docs/touchablehighlight): the view's background will be darkened when the user presses down on the button
+- [TouchableNativeFeedback](https://reactnative.dev/docs/touchablenativefeedback): this is on Android to display ink surface reaction ripple that respond to the user's touch
+- [TouchableOpacity](https://reactnative.dev/docs/touchableopacity): this will reduce the opacity of the button
+- [TouchableWithputFeedback](https://reactnative.dev/docs/touchablewithoutfeedback): don't show something when the user press the button
