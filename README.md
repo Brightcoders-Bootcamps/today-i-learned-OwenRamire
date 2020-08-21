@@ -294,3 +294,7 @@ But you can use more Touchable components to build your own buttons that React N
 - [TouchableNativeFeedback](https://reactnative.dev/docs/touchablenativefeedback): this is on Android to display ink surface reaction ripple that respond to the user's touch
 - [TouchableOpacity](https://reactnative.dev/docs/touchableopacity): this will reduce the opacity of the button
 - [TouchableWithputFeedback](https://reactnative.dev/docs/touchablewithoutfeedback): don't show something when the user press the button
+
+### Fri 21st, August 2020 *RN.- **Navigating Between Screens***
+Almost all the mobile apps manage navigation between screens. You could use the [ReactNavigation](https://reactnavigation.org/) library. This library provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
+But if you'd like to achive a native look and feel on both Android and iOS, or you're integrating React Native into an app that already manages navigation natively, you might need [react-native-navigation](https://github.com/wix/react-native-navigation).  
