@@ -297,4 +297,40 @@ But you can use more Touchable components to build your own buttons that React N
 
 ### Fri 21st, August 2020 *RN.- **Navigating Between Screens***
 Almost all the mobile apps manage navigation between screens. You could use the [ReactNavigation](https://reactnavigation.org/) library. This library provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
-But if you'd like to achive a native look and feel on both Android and iOS, or you're integrating React Native into an app that already manages navigation natively, you might need [react-native-navigation](https://github.com/wix/react-native-navigation).  
+But if you'd like to achive a native look and feel on both Android and iOS, or you're integrating React Native into an app that already manages navigation natively, you might need [react-native-navigation](https://github.com/wix/react-native-navigation). 
+
+## Week 6 
+
+### Mon 24th, August 2020 *JS.- **Classes***
+The classes are "special function" like the function expression and function declarations. We can create a class using the reserved word `class` and his name:
+```javascript
+  class Polygon {
+    constructor(height, width) {
+       this.name = 'Polygon';
+       this.height = height;
+       this.width = width;
+    }
+  }
+```
+The constructor method is a special method to create and start an object created with a
+`class`. The constructor can use the reserved word `super` to call the super class's constructor.
+With the keyword `extends` we can create a child class from another for example: 
+````javascript
+class Polygon {
+  constructor(height, width) {
+    this.name = 'Polygon';
+    this.height = height;
+    this.width = width;
+  }
+}
+
+class Square extends Polygon {
+  constructor(length) {
+    super(length, length);
+    this.name = 'Square';
+  }
+}	
+```
+
+
+
