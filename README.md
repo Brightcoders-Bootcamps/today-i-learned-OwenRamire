@@ -332,5 +332,7 @@ class Square extends Polygon {
 }	
 ```
 
-
-
+### Tues 25th, August 2020 *RN.- **Animations***
+Animations allow us to convey physically believable motion in our interface. React native provides two complementary animation systems: 
+	- `Animated`: for granular and interactive control of specific values. It's designed to express a wide variety of interesting animation and interation patterns in a very performant way. `Animated`exports six animatable components types: `View` `Text` `Image` `ScrollView` `Flatlist` and `SectionList`, but we can create our own using `Animated.createAnimatedComponent()`
+	- `LayoutAnimation`: allow us to globally configure `create` and `update` animations that will be used for all views in the next render/layout cycle. It is useful for doing `Flexbox` layout updates.
