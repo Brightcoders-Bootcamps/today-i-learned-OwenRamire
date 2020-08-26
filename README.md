@@ -315,21 +315,21 @@ The classes are "special function" like the function expression and function dec
 The constructor method is a special method to create and start an object created with a
 `class`. The constructor can use the reserved word `super` to call the super class's constructor.
 With the keyword `extends` we can create a child class from another for example: 
-````javascript
-class Polygon {
-  constructor(height, width) {
-    this.name = 'Polygon';
-    this.height = height;
-    this.width = width;
+```javascript
+  class Polygon {
+    constructor(height, width) {
+      this.name = 'Polygon';
+      this.height = height;
+      this.width = width;
+    }
   }
-}
 
-class Square extends Polygon {
-  constructor(length) {
-    super(length, length);
-    this.name = 'Square';
-  }
-}	
+  class Square extends Polygon {
+    constructor(length) {
+      super(length, length);
+      this.name = 'Square';
+    }
+  }	
 ```
 
 ### Tues 25th, August 2020 *RN.- **Animations***
