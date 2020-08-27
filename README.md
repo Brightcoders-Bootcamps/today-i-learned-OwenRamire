@@ -344,3 +344,9 @@ Hooks solve a wide variety of seemingly  unconnected problems in React:
 	- Complex components become hard to understand: We’ve often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effect 
 	- Classes confuse both people and machines: classes can be a large barrier to learning React. You have to understand how `this` works in JavaScript  
 
+### Thur 27th, August 2020 *RN.- **Gesture Responder System*** 
+The Gesture Responder System manages the lifecycle of gestures in your app. For example, the app needs to determine if the touch is scrolling, sliding on a widget, or tapping.
+**Best practices:**
+	- **feedback/highlighting:** show the user what is handling their touch
+	- **cancel-ability:** the user should be able to abort it mid-touch by dragging finger away
+
