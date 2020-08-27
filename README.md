@@ -336,3 +336,11 @@ With the keyword `extends` we can create a child class from another for example:
 Animations allow us to convey physically believable motion in our interface. React native provides two complementary animation systems: 
 	- `Animated`: for granular and interactive control of specific values. It's designed to express a wide variety of interesting animation and interation patterns in a very performant way. `Animated`exports six animatable components types: `View` `Text` `Image` `ScrollView` `Flatlist` and `SectionList`, but we can create our own using `Animated.createAnimatedComponent()`
 	- `LayoutAnimation`: allow us to globally configure `create` and `update` animations that will be used for all views in the next render/layout cycle. It is useful for doing `Flexbox` layout updates.
+
+### Wed 26th, August 2020 *React.- **Introducing Hooks***
+Hooks are the new addition i React 16.8. With this new feature we can use *States* without writing a `Class`, hooks are also available in React Native since the 0.59 version.
+Hooks solve a wide variety of seemingly  unconnected problems in React:
+	- Hard to reuse stateful logic between components: React doesn't offer a way to "attach" reusable behavior to component 
+	- Complex components become hard to understand: We’ve often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effect 
+	- Classes confuse both people and machines: classes can be a large barrier to learning React. You have to understand how `this` works in JavaScript  
+
