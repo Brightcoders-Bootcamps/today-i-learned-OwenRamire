@@ -346,7 +346,14 @@ Hooks solve a wide variety of seemingly  unconnected problems in React:
 
 ### Thur 27th, August 2020 *RN.- **Gesture Responder System*** 
 The Gesture Responder System manages the lifecycle of gestures in your app. For example, the app needs to determine if the touch is scrolling, sliding on a widget, or tapping.
-**Best practices:**
+##### Best practices:
 	- **feedback/highlighting:** show the user what is handling their touch
 	- **cancel-ability:** the user should be able to abort it mid-touch by dragging finger away
 
+### Fri 28th, August 2020 *JS.- **NaN** *
+NaN is a variable in global scope. His initial value is  Not-A-Numbre. In modern browsers, NaN is non-configurable, non-writable property. There are five different types of operations that return NaN in a program: 
+	- Number cannot be parsed (`parseInt('blabla')` or `Number(undefined)`)
+	- Math operation if the result isn't a real number (e.g `Math.sqrt(-1)`)
+	- Operand of an argument is NaN (`0 * Infinity`)
+	- Any operation that involves a stringand isn't an addition operation (`'foo' / 3`)
+`NaN` compares unequal (`==`, `!=`, `===`, `!==`) to any other value including to another `NaN` value. Use `Number.isNaN()` or `isNaN()`to most clearly determine if a value is `NaN`
