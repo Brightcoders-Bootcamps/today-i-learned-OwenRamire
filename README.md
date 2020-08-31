@@ -357,3 +357,14 @@ NaN is a variable in global scope. His initial value is  Not-A-Numbre. In modern
 	- Operand of an argument is NaN (`0 * Infinity`)
 	- Any operation that involves a stringand isn't an addition operation (`'foo' / 3`)
 `NaN` compares unequal (`==`, `!=`, `===`, `!==`) to any other value including to another `NaN` value. Use `Number.isNaN()` or `isNaN()`to most clearly determine if a value is `NaN`
+
+## Week 7
+
+### Mon 31st, August 2020 *React.- **Component State** *
+`setState()` schedules and update to a component's state object. When the `state` change, the component responds by re-rendering.
+#### Differences between `state` and `props`
+| `state` | `props` |
+| ------- | ------- |
+| `state` manage **within** the component (similar to variables declared within a fuction)       |  `props` get passed to the componet (similar to function parameters) |
+| The `state` starts with a default value when a component mounts and then suffers from mutations in time | A Component cannot change its `props`|
+
