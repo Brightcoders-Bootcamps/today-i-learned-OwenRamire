@@ -368,8 +368,37 @@ NaN is a variable in global scope. His initial value is  Not-A-Numbre. In modern
 | `state` manage **within** the component (similar to variables declared within a fuction)       |  `props` get passed to the componet (similar to function parameters) |
 | The `state` starts with a default value when a component mounts and then suffers from mutations in time | A Component cannot change its `props`|
 
-### Tues 1st, August 2020 *RN.- **Performance Overview***
+### Tues 1st, September 2020 *RN.- **Performance Overview***
 - JS frame rate (JavaScript thread): 
 	- Here your React application will live and all your business logic run here Updates to native-backed views are batched and sent over to the native side at the end of each iteration of the event loop, before the frame deadline (if all goes well). If the JavaScript thread is unresponsive for a frame, it will be considered a dropped frame.
 - UI frame rate (main thread): 
 	 - Many people have noticed that performance of NavigatorIOS is better out of the box than Navigator. The reason for this is that the animations for the transitions are done entirely on the main thread, and so they are not interrupted by frame drops on the JavaScript thread.
+
+### Wed 2nd, September 2020 *RN.- **RAM Bundles and Inline Requires***
+The Random Access Modules (RAM) bundle format is useful for apps that have large number of screens, but generally it is useful to apps that have large amounts of code that aren't needed for a while after startup. 
+- Loading JavaScript: Before RN can execute JS code, that code must be loaded into memory and parsed. 
+	- for example, in a standard bundle if you load a 50mb bundle, all 50mb must be loaded and parsed before any of it can be executed, but with RAM bundles you can load only the portion of the 50mb that you actually need at startup
+- Enable the RAM format: 
+	- on iOS: 
+		- the RAM format will create a single indexed file that react native will load one module at a time
+		- Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/scripts/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
+		```
+		  export BUNDLE_COMMAND="ram-bundle"
+		  export NODE_BINARY=node
+		  ../node_modules/react-native/scripts/react-native-xcode.sh
+		```
+	- On Android:
+		- the RAM format will create a set of files for each module. But, you can force Android to create a single file, like iOS, but using multiple files can be more performant and requires less memory.
+		- Enable the RAM format by editing your `android/app/build.gradle` file. Before the line `apply from: "../../node_modules/react-native/react.gradle"` add or amend the `project.ext.react` block:
+		```
+		project.ext.react = [
+  		   bundleCommand: "ram-bundle",
+		]
+		```
+		- use th following lines if you want to use a single indexed file: 
+		```
+		project.ext.react = [
+  		   bundleCommand: "ram-bundle",
+  		   extraPackagerArgs: ["--indexed-ram-bundle"]
+		]
+		```
