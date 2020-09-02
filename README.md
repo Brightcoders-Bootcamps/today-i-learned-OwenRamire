@@ -360,7 +360,7 @@ NaN is a variable in global scope. His initial value is  Not-A-Numbre. In modern
 
 ## Week 7
 
-### Mon 31st, August 2020 *React.- **Component State** *
+### Mon 31st, August 2020 *React.- **Component State***
 `setState()` schedules and update to a component's state object. When the `state` change, the component responds by re-rendering.
 #### Differences between `state` and `props`
 | `state` | `props` |
@@ -368,3 +368,8 @@ NaN is a variable in global scope. His initial value is  Not-A-Numbre. In modern
 | `state` manage **within** the component (similar to variables declared within a fuction)       |  `props` get passed to the componet (similar to function parameters) |
 | The `state` starts with a default value when a component mounts and then suffers from mutations in time | A Component cannot change its `props`|
 
+### Tues 1st, August 2020 *RN.- **Performance Overview***
+- JS frame rate (JavaScript thread): 
+	- Here your React application will live and all your business logic run here Updates to native-backed views are batched and sent over to the native side at the end of each iteration of the event loop, before the frame deadline (if all goes well). If the JavaScript thread is unresponsive for a frame, it will be considered a dropped frame.
+- UI frame rate (main thread): 
+	 - Many people have noticed that performance of NavigatorIOS is better out of the box than Navigator. The reason for this is that the animations for the transitions are done entirely on the main thread, and so they are not interrupted by frame drops on the JavaScript thread.
