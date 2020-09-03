@@ -402,3 +402,11 @@ The Random Access Modules (RAM) bundle format is useful for apps that have large
   		   extraPackagerArgs: ["--indexed-ram-bundle"]
 		]
 		```
+
+### Thur 3rd, September 2020 *RN.- **JavaScript Runtime*** 
+Using React Native we're going to be running our JS code in two environments:
+- RN will use JavaScriptCore, the JS engine that powers Safari Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
+- When using Chrome debugging, all JavaScript code runs within Chrome itself, communicating with native code via WebSockets. Chrome uses V8 as its JavaScript engine.
+#### JS Syntax Transformers
+Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.
+React Native ships with the Babel JavaScript compiler. 
