@@ -410,3 +410,17 @@ Using React Native we're going to be running our JS code in two environments:
 #### JS Syntax Transformers
 Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.
 React Native ships with the Babel JavaScript compiler. 
+
+### Fri 4th, September 2020 *RN.- **Timers***
+Timers are an important part of an application and React Native implements the browser timers.These are some examples of timers: 
+- `setTimeout`, `clearTimeout`
+- `setInterval`, `celarInterval`
+- `setImmediate`, `celarImmediate`
+- `requestAnimationFrame`, `cancelAnimationFrame`
+#### InteractionManager 
+With `InteractionManager` we can make long-running work that it scheduled to start after any interaction/animations have completed. Applications can schedule tasks to run after interactions with the following:
+```javascript
+  InteractionManager.runAfterInteractions(() => {
+    // ...long-running synchronous task...
+  });
+```
