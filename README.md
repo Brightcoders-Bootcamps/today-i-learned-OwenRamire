@@ -424,3 +424,33 @@ With `InteractionManager` we can make long-running work that it scheduled to sta
     // ...long-running synchronous task...
   });
 ```
+
+## Week 8
+
+### Mon 7th, September 2020 *RN.- **Using Hermes***
+Hermes is an open-source JavaScript engine optimized for running React Native apps on Android. Use Hermes gives us:
+- improved start-up time
+- decreased memory usage
+- snaller app size
+To add Hermes, we need at least the RN version 0.60.4. If you don't have it go to [Upgrading to new React Native versions](https://reactnative.dev/docs/upgrading) and then come back here.
+The **Windows users** to use Hermes requieres [Microsoft Visual C++ 2015 Redistrubutable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+Now you have everything, start with
+- edit your `android/app/build.grade` like this
+  ```
+  project.ext.react = [
+     entryFile: "index.js",
+     // put this line in true
+     enableHermes: false
+     // like this:
+     enableHermes: true // clean and rebuild if changing
+  ]
+  ```
+- if you are using ProGuard, you'll need to add these rules in `proguard-rules.pro`:
+  ```
+  -keep class com.facebook.hermes.unicode.** { *; }
+  -keep class com.facebook.jni.** { *; }
+  ```
+- if you've already build your app at least once, clean the build: 
+  `$ cd android && ./gradlew clean`
+  and **that's it** you can run your app as normal.
+
