@@ -454,3 +454,57 @@ Now you have everything, start with
   `$ cd android && ./gradlew clean`
   and **that's it** you can run your app as normal.
 
+### Tues 8th, September 2020 *RN.-**Connectivity(Networking)***
+You might need to make a POST request to a REST API or may need to fetch a chunk of static content from another server in your app.
+React Native provides the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) for your networking needs. 
+This is an example using fetch in RN:
+```javascript
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+
+export default App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('https://reactnative.dev/movies.json')
+      .then((response) => response.json())
+      .then((json) => setData(json.movies))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.releaseYear}</Text>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+
+```
+Also if you don't want to use `fetch` you could use third party libraries like [frisbee](https://github.com/niftylettuce/frisbee) or [axios](https://github.com/axios/axios), also you can use the `XMLHttpRequest API` directly:
+```javascript
+var request = new XMLHttpRequest();
+request.onreadystatechange = (e) => {
+  if (request.readyState !== 4) {
+    return;
+  }
+
+  if (request.status === 200) {
+    console.log('success', request.responseText);
+  } else {
+    console.warn('error');
+  }
+};
+
+request.open('GET', 'https://mywebsite.com/endpoint/');
+request.send();
+```
