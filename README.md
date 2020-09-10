@@ -508,3 +508,17 @@ request.onreadystatechange = (e) => {
 request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
+
+### Wed 09th, September 2020 *RN.- **Security***
+It is impossible to build software that is completely impenetrable. So, we need to know about the best practices for storing sensitive information, authentication, network security and tools that will help us secure our app.
+#### Storing Sensitive Info:
+- **Never store sensitive API keys** in your app code. If you must have an API key or a secret to access some resource from your app, the most secure way to handle this would be to build an orchestration layer between your app and the resource.
+#### Async Storage 
+- is a community-maintained module for React Native that provides an asynchronous, unencrypted, key-value store. Async Storage is not shared between apps.
+	- Async Storage is the React Native equivalent of Local Storage from the web
+#### Secure Storage
+- React Native does not come bundled with any way of storing sensitive data. However, there are pre-existing solutions for Android and iOS platforms like:
+	- **iOS - Keychain Services**
+	- **Android - Secure Shared Preferences**
+	- **Android - Keystore**
+
