@@ -526,3 +526,75 @@ Native modules are usually distributed as npm packages, except that on top of th
 To get set up with the basic project structure for a native module we will use the community tool called [Bob](https://github.com/react-native-community/bob). We will execute the basic `create` script:
 `npx @react-native-community/bob create react-native-awesome-module
 `
+
+### Fri 11th, September 2020 *React.- **Hooks at a glance***
+Hooks are functions that let us "hook into" React state and lifecycle feature from function components, this feature doesn't work with the class components. React provides a few built-in Hooks like useState: 
+```javascript
+// a function component using the state feature with Hooks:
+import React, {useState} from 'react';
+
+export default function App() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+  // you can create all the Hooks that you need
+  return (
+     <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+// a class component using state: 
+import React from 'react';
+
+export default class App() extends React.Component {
+  constructor(props) {
+     super(props);
+     this.state = {
+        count: 0,
+     };
+  }
+  render () {
+     return (
+        <div>
+           <p>You clicked {this.state.count} times</p>
+           <button onClick={() => this.setState(count + 1)}>
+              Click me
+           </button>
+        </div>
+     );
+  }
+}
+```
+You’ve likely performed data fetching, subscriptions, or manually changing the DOM from React components before. We call these operations “side effects” (or “effects” for short) because they can affect other components and can’t be done during rendering.
+The Effect Hook, `useEffect`, adds the ability to perform side effects from a function component. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in React classes, but unified into a single API.
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+using the Hook `useEffect` you are telling React to run your "effect" function after flushing changes to the DOM. By default React runs the effects after every render, including the first render.
+#### Rules of Hooks
+Hooks are JS functions but they impose two additional rules:
+- Only call them **at the top level**. Don't call them inside loops, conditions, or nested functions.
+- only call them in **React function commponents**. Don't call them in regular JS functions
