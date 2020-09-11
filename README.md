@@ -521,4 +521,8 @@ It is impossible to build software that is completely impenetrable. So, we need 
 	- **iOS - Keychain Services**
 	- **Android - Secure Shared Preferences**
 	- **Android - Keystore**
-
+### Thur 10th, September 2020 *RN.- **Native Module Setup***
+Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform.
+To get set up with the basic project structure for a native module we will use the community tool called [Bob](https://github.com/react-native-community/bob). We will execute the basic `create` script:
+`npx @react-native-community/bob create react-native-awesome-module
+`
