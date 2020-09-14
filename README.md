@@ -561,7 +561,7 @@ export default class App() extends React.Component {
      return (
         <div>
            <p>You clicked {this.state.count} times</p>
-           <button onClick={() => this.setState(count + 1)}>
+           <button onClick={() => this.setState({this.state.count + 1})}>
               Click me
            </button>
         </div>
@@ -598,3 +598,60 @@ using the Hook `useEffect` you are telling React to run your "effect" function a
 Hooks are JS functions but they impose two additional rules:
 - Only call them **at the top level**. Don't call them inside loops, conditions, or nested functions.
 - only call them in **React function commponents**. Don't call them in regular JS functions
+
+## Week 9
+
+### Mon 14th, September 2020 *React.- Using the State Hook*
+```javascript
+function Example(props) {
+   return <div />;
+}
+// -------------
+const Example = (props) => {
+   return <div />; 
+}
+```
+this two example of a function component in React.But, theses components are "stateless components" because we can't use `states` in a function component. Here is where Hooks can work.
+Hooks is a special function that let us "hook into" React feature. For example if we want to use `state` in a function component, the `useState` Hook will help us to use the `state` in our component without a class. This is an advantage because we don't have to rewrite our function component into a class component.
+If we want a counter using states, in a class component it'll be like this:
+```javascript
+import React, {React} from 'react';
+
+class Example extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+```
+In a function component, we have no `this`, so we can’t assign or read `this.state`. Instead, we call the useState Hook directly inside our component:
+```javascript
+import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+  // This is similar to this.state.count and this.setState in a class
+```
+`useState` is a new way to use the exact same capabilities that this.state provides in a class. Normally, variables “disappear” when the function exits but state variables are preserved by React.
+If we want to read the current state: 
+```javascript
+// instead to use:
+<p> the value of the count is {this.state.count} </p>
+
+// we just call the variable count
+<p> the value of the count is {count} </p>
+```
+And is we want to update the state:
+```javascript
+ // instead to use: 
+ <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+    Click me
+  </button>
+
+  // we use 
+  <button onClick={() => setCount(count + 1)}>
+    Click me
+  </button>
+```
