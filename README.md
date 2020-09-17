@@ -717,3 +717,12 @@ function Example() {
   );
 }
 ```
+
+### Wed 16th, Septermber 2020 *React.- Rules of Hook*
+Hooks are JS functions, but we need to follow two rules when using them.
+- Only call them at the top level: don´t call Hooks inside loops, conditions or nested functions. 
+- Only call them from React Functions: don't call Hooks from regular JS functions. Instead:
+	- call Hooks from React function components
+	- call Hooks from custom Hooks
+We have a plugin called [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks) that enforces these two rules.
+
