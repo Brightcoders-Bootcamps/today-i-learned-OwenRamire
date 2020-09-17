@@ -615,7 +615,7 @@ this two example of a function component in React.But, theses components are "st
 Hooks is a special function that let us "hook into" React feature. For example if we want to use `state` in a function component, the `useState` Hook will help us to use the `state` in our component without a class. This is an advantage because we don't have to rewrite our function component into a class component.
 If we want a counter using states, in a class component it'll be like this:
 ```javascript
-import React, {React} from 'react';
+import React, {Component} from 'react';
 
 class Example extends Component {
   constructor(props) {
@@ -654,4 +654,66 @@ And is we want to update the state:
   <button onClick={() => setCount(count + 1)}>
     Click me
   </button>
+```
+
+### Tues 15th, September 2020 *React.- Using the Effect Hook*
+The Effect Hook lets you perform side effects in function components.
+Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects.
+There are two common kinds of side effects in React components: those that don’t require cleanup, and those that do.
+Effect without cleanup: run some additional code after React has updated the DOM. Examples of this effects are network requests, manual DOM mutations and logging. 
+**Example using classes:** 
+```javascript
+class Example extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0
+    };
+  }
+  /* 
+   *  we want to perform the same side effect regardless of whether the component
+   *  just mounted, or if it has been updated
+  */
+  componentDidMount() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+  componentDidUpdate() {
+    document.title = `You clicked ${this.state.count} times`;
+  }
+
+  render() {
+    return (
+      <div>
+        <p>You clicked {this.state.count} times</p>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Click me
+        </button>
+      </div>
+    );
+  }
+}
+```
+**Example using Hooks:**
+```javascript
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+  
+  /*
+    using this Hook, we tell React that our component needs to do something after render.
+  */
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
 ```
