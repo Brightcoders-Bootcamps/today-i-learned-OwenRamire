@@ -818,3 +818,51 @@ function FriendListItem(props) {
 }
 ```
  All we did was to extract some common code between two functions into a separate function.
+
+## Week 10
+
+### Mon 21st, September 2020 *RN.- Direct Manipulation*
+When we need to make changes directly to a component without using `state`/`props` to trigger a re-render of the entire subtree. For example, using React in the browser we sometimes need to directly modify a DOM node and the same is true for views in mobile apps. `setNativeProps`is the *React Native* equivalent to setting properties directly on a DOM node.
+**NOTE:** Use setNativeProps when frequent re-rendering creates a performance bottleneck.
+We will typically only be using it for creating continuous animations to avoid the overhead of rendering the component hierarchy and reconciling many views. 
+Example of `setNativeProps` with TouchableOpacity component:
+```javascript
+/*
+We'll use setNativeProps to update the opacity of its child component
+*/
+setOpacityTo(value) {
+  // Redacted: animation related code
+  this.refs[CHILD_REF].setNativeProps({
+    opacity: value
+  });
+},
+```
+This allows us to write the following code and know that the child will have its opacity updated in response to taps, without the child having any knowledge of that fact or requiring any changes to its implementation:
+```javascript 
+<TouchableOpacity onPress={this._handlePress}>
+  <View style={styles.button}>
+    <Text>Press me!</Text>
+  </View>
+</TouchableOpacity>
+```
+If `setNativeProps` wasn't available, one way to do the changes might be store the opacity value in the state and then update the state whenever `onPress` is fired:
+```javascript 
+constructor(props) {
+  super(props);
+  this.state = {
+     myButtonOpacity: 1,
+  };
+}
+
+render() {
+  return (
+    <TouchableOpacity onPress={() => this.setState({myButtonOpacity: 0.5})}
+                      onPressOut={() => this.setState({myButtonOpacity: 1})}>
+      <View style={[styles.button, {opacity: this.state.myButtonOpacity}]}>
+        <Text>Press me!</Text>
+      </View>
+    </TouchableOpacity>
+  )
+}
+```
+In that example React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
