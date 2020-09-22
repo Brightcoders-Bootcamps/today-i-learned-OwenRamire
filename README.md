@@ -866,3 +866,34 @@ render() {
 }
 ```
 In that example React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
+
+### Tues 22nd, September 2020 *JavaScript.- Regular expressions*
+Regular expressions are patterns used to match character combinations in strings. Also In JavaScript, regular expressions are also objects.
+We can use these patterns with 
+- the methods of `RegExp`: 
+	- `exec()`
+	- `test()`
+- the methods of `String`:
+	- `replace()`
+	- `replaceAll()`
+	- `search()`
+	- `split()`
+How can we create a regular expression? There are two ways: 
+- using regular expression literal. which consists of a pattern enclosed between slashes:
+  ```javascript
+  /*
+    With this pattern will matches character combinations in strings
+    only when the exact sequence "abc" occurs
+  */
+  let re = /abc/;
+  ```
+	- Regular expression literals provide compilation of the regular expression when the script is loaded.
+	- If the regular expression remains constant, using this can improve performance.
+- calling the constructor function of the `RegExp` object:
+  ```javascript
+  let re = new RegExp('abc');
+  ```
+	- Using the constructor provides runtime ompilation of the regular expression.  
+	- Use it when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source
+##### using special characters
+for example if we want to find one or more "b" or find white spaces in the last example. We can include special characters in the pattern. For example, match a single "a" followed by **zero** or **more** "b" followed by "c", we'd use the pattern `/ab*c/`, with the `*` we're saying that "0 or more occurrences of the preciding item", in this case the string "cdd**abbbbc**debc" will match 
