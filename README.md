@@ -897,3 +897,54 @@ How can we create a regular expression? There are two ways:
 	- Use it when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source
 ##### using special characters
 for example if we want to find one or more "b" or find white spaces in the last example. We can include special characters in the pattern. For example, match a single "a" followed by **zero** or **more** "b" followed by "c", we'd use the pattern `/ab*c/`, with the `*` we're saying that "0 or more occurrences of the preciding item", in this case the string "cdd**abbbbc**debc" will match 
+
+### Wed 23th, September 2020 *JavaScript.- this*
+The value of `this` is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called.
+```javascript
+const test = {
+   props: 42,
+   func: function() {
+      return this.props;
+   },
+}
+
+console.log(test.func());
+// expected output: 42
+```
+- **value:** A property of an execution context (global, function or eval) that, is always a reference to an object and in strict mode can be any value.
+	- *Global context (outside of any function):* `this` refers to the global object whether in strict mode or not.
+	```javascript
+	// In the browser, the window object is also the global object
+	console.log(this === window); // the output will be true
+
+	this.b = 'Hello world';
+	console.log(window.b)
+	// the output will be Hello world
+
+	/*
+	   We can easily get the global object using the global 'globalThis' property 
+	*/
+	```
+	- *Function context (inside a function):* the value depends on how the function is called.
+	```javascript
+	/*
+	in the example is not in strict mode, so, 'this' will be default to the global object (a.k.a the window ina browser)
+	*/
+	function myFunction(){
+	   return this;
+	}
+
+	myFunction() === window; // true
+
+	/*
+	In strict mode, however, if the value of this is not set when entering an execution context, it remains as undefined, as shown in the following example:
+	*/
+	
+	function f2() {
+  	   'use strict'; // see strict mode
+  	   return this;
+	}
+	
+	f2() === undefined; // true
+	```
+	- *Class context:* it is similar as the function, just there are some differences and caveats. Within a class constructor, `this` is a regular object. All non-static methods within the class are added to th prototype of `this`
