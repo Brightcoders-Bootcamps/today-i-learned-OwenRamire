@@ -948,3 +948,32 @@ console.log(test.func());
 	f2() === undefined; // true
 	```
 	- *Class context:* it is similar as the function, just there are some differences and caveats. Within a class constructor, `this` is a regular object. All non-static methods within the class are added to th prototype of `this`
+
+### Thur 24th, September 2020 *JavaScript.- Spread syntax*
+The spread syntax (`...`) allows an iterable such as an array expression or string to be expanded in places where zero or more arguments or elements are expected, or object expression to be expanded in places where zero or more key-value pairs are expected.
+The spread syntax:
+- function calls: `myFunction(...iterableObj);`
+- array literals or strings: `[...iterableObj, '4', 'five', 6];`
+- object literals (new in ECMAScript 2018): `let objClone: {...obj};`
+```javascript
+function sum(a, b, c){
+   return a + b + c; 
+}
+
+const numbers = [1, 2, 3];
+
+console.log(sum(...numbers));
+// expect output: 6
+
+
+/*
+any argument in the argument list can use spread syntax, and the spread syntax can be used multiple times
+*/
+
+function myFunc(){ }
+
+const args = [0, 1];
+
+myFunc(-1, ..arg, 2, ...[3]);
+```
+	
