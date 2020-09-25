@@ -976,4 +976,16 @@ const args = [0, 1];
 
 myFunc(-1, ..arg, 2, ...[3]);
 ```
-	
+
+### Fri 25th, September 2020 *JavaScript.- RegExp*
+The RegExp is an object, is used for matching text with a pattern
+There are two ways to create a RegExp object:
+- **literal notation:** function's parameters are enclosed between slashes and do not use quotation marks ```javascript let re = /ab+c/i;```
+- **constructor:** function's parameters are not enclosed between slashes but do use quotation marks ```javascript 
+let re = new RegExp('ab+c', 'i'); // Constructor with string pattern as first argument
+
+let re = new RegExp(/ab+c/, 'i'); // Constructor with regular expresion literal as first argument (starting with ECMAScript 6);
+
+/* with new RegExp(/ab+c/, 'i') the first argument is a RegExp and the second is the flag*/
+```
+
