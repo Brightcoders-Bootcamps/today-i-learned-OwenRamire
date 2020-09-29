@@ -989,3 +989,9 @@ let re = new RegExp(/ab+c/, 'i'); // Constructor with regular expresion literal 
 /* with new RegExp(/ab+c/, 'i') the first argument is a RegExp and the second is the flag*/
 ```
 
+## Week 11
+
+### Mon 28th, September 2020 *RN.- Guides (android): Native Modules*
+If React Native doesn't have a corresponding module that we need to access to a platform API. Maybe we want to reuse some existing Java code without having to reimplement it in JavaScript, or write some high performance. 
+With React Native is possible to write real native code and have access to the fullpower of the platform. If React Native doesn't support a native feature that we need, we should be able to build it ourself.
+The native modules are usually distributed as npm package, apart from the typical javascript files and resources they will contain an Android library project. 
