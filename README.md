@@ -995,3 +995,16 @@ let re = new RegExp(/ab+c/, 'i'); // Constructor with regular expresion literal 
 If React Native doesn't have a corresponding module that we need to access to a platform API. Maybe we want to reuse some existing Java code without having to reimplement it in JavaScript, or write some high performance. 
 With React Native is possible to write real native code and have access to the fullpower of the platform. If React Native doesn't support a native feature that we need, we should be able to build it ourself.
 The native modules are usually distributed as npm package, apart from the typical javascript files and resources they will contain an Android library project. 
+
+### Tues 29th, September 2020 *JS.- Array.prototype.some()*
+the `some()` method check if at least one element of the array have the condition that you give it. Let's see an example: 
+```javascript
+const myArray = [1, 2, 3, 4, 5];
+
+const isEven = myArray.some((element) => element % 2 === 0);
+console.log(isEven);
+/*
+We expected output: true. Because 2 and 4 are even
+*/
+```
+`some()` runs a `callback` function once for every element on the array until finding an element that returns `true`. If the function find an element, it will return `true` immediately, but if not it will return `false` 
