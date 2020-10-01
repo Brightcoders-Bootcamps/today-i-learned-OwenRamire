@@ -1008,3 +1008,18 @@ We expected output: true. Because 2 and 4 are even
 */
 ```
 `some()` runs a `callback` function once for every element on the array until finding an element that returns `true`. If the function find an element, it will return `true` immediately, but if not it will return `false` 
+
+### Wed 30th, September 2020 *JS.- Array.prototype.map()*
+The `map()` method *creates a new array* with the result of calling a provided function on every element
+```javascript
+const array = [1, 4, 9, 16];
+
+const map = array.map((element) => element * 2)
+
+console.log(map) // expected output: [2, 8, 18, 32]
+```
+`map` calls a `callback` function once for each element in an array, in order, and constructs a new array from the results.
+We shouldn't use `map()` if:
+- We're not using the array it returns; and/or
+- We're not returning a value from the callback
+
