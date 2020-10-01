@@ -966,50 +966,49 @@ console.log(sum(...numbers));
 // expect output: 6
 
 
-/*
-any argument in the argument list can use spread syntax, and the spread syntax can be used multiple times
-*/
+// any argument in the argument list can use spread syntax, and the spread syntax can be used multiple times
 
 function myFunc(){ }
 
 const args = [0, 1];
 
-myFunc(-1, ..arg, 2, ...[3]);
+myFunc(-1, ...arg, 2, ...[3]);
 ```
 
-### Fri 25th, September 2020 *JavaScript.- RegExp*
+### Fri 25th, September 2020 JavaScript.- RegExp
 The RegExp is an object, is used for matching text with a pattern
 There are two ways to create a RegExp object:
-- **literal notation:** function's parameters are enclosed between slashes and do not use quotation marks ```javascript let re = /ab+c/i;```
-- **constructor:** function's parameters are not enclosed between slashes but do use quotation marks ```javascript 
-let re = new RegExp('ab+c', 'i'); // Constructor with string pattern as first argument
+- **literal notation:** function's parameters are enclosed between slashes and do not use quotation marks `let re = /ab+c/i;`
+- **constructor:** function's parameters are not enclosed between slashes but do use quotation marks 
+```javascript
+   let re = new RegExp('ab+c', 'i'); // Constructor with string pattern as first argument
 
-let re = new RegExp(/ab+c/, 'i'); // Constructor with regular expresion literal as first argument (starting with ECMAScript 6);
+   let re = new RegExp(/ab+c/, 'i'); // Constructor with regular expresion literal as first argument (starting with ECMAScript 6);
 
-/* with new RegExp(/ab+c/, 'i') the first argument is a RegExp and the second is the flag*/
+   // with new RegExp(/ab+c/, 'i') the first argument is a RegExp and the second is the flag
 ```
 
 ## Week 11
 
-### Mon 28th, September 2020 *RN.- Guides (android): Native Modules*
+### Mon 28th, September 2020 RN.- Guides (android): Native Modules
 If React Native doesn't have a corresponding module that we need to access to a platform API. Maybe we want to reuse some existing Java code without having to reimplement it in JavaScript, or write some high performance. 
 With React Native is possible to write real native code and have access to the fullpower of the platform. If React Native doesn't support a native feature that we need, we should be able to build it ourself.
 The native modules are usually distributed as npm package, apart from the typical javascript files and resources they will contain an Android library project. 
 
-### Tues 29th, September 2020 *JS.- Array.prototype.some()*
+### Tues 29th, September 2020 JS.- Array.prototype.some()
 the `some()` method check if at least one element of the array have the condition that you give it. Let's see an example: 
 ```javascript
 const myArray = [1, 2, 3, 4, 5];
 
 const isEven = myArray.some((element) => element % 2 === 0);
 console.log(isEven);
-/*
-We expected output: true. Because 2 and 4 are even
-*/
+
+// We expected output: true. Because 2 and 4 are even
+
 ```
 `some()` runs a `callback` function once for every element on the array until finding an element that returns `true`. If the function find an element, it will return `true` immediately, but if not it will return `false` 
 
-### Wed 30th, September 2020 *JS.- Array.prototype.map()*
+### Wed 30th, September 2020 JS.- Array.prototype.map()
 The `map()` method *creates a new array* with the result of calling a provided function on every element
 ```javascript
 const array = [1, 4, 9, 16];
@@ -1023,3 +1022,19 @@ We shouldn't use `map()` if:
 - We're not using the array it returns; and/or
 - We're not returning a value from the callback
 
+### Thur 1st, October 2020 RN.- Headless JS
+Headless JS is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music.
+This task is a async function that we register on `AppRegistry`, similar to registering React applications: 
+```javascript
+import {AppRegistry} from 'react-native';
+AppRegistry.registerHeadlessTask('SomeTaskName', () =>
+   require('SomeTaskName');
+);
+```
+Then, int `SomeTaskName.js`: 
+```javascript 
+module.exports = async (taskData) => {
+   // do stuff 
+}; 
+```
+After all of this, we can do anything in your task such as network requests, timers and so on, as long as it doesn't touch UI. 
