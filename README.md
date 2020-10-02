@@ -1037,4 +1037,62 @@ module.exports = async (taskData) => {
    // do stuff 
 }; 
 ```
-After all of this, we can do anything in your task such as network requests, timers and so on, as long as it doesn't touch UI. 
+After all of this, we can do anything in your task such as network requests, timers and so on, as long as it doesn't touch UI.
+
+### Fri 2nd, October 2020 *RN.- Publishing to Google Play Store*
+Android requires that all apps be digitally signed with a certificate before they can be installed. To distribute our Android application via Google Play it needs to be signed with a release key that then needs to be used for all future updates. Before that our application binary is uploaded to Gooogle Play it needs to be signed with an upload key. If we want to know more about this go to [Sign your app](https://developer.android.com/studio/publish/app-signing) on the Android Developers documentation.
+We can generate a private signing key using `keytool`. On Windows must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
+This command:
+- `$ keytool -genkeypair -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
+prompts you for passwords for the keystore and key and for the Distinguished Name fields for your key. It then generates the keystore as a file called `my-upload-key.keystore`.
+On Mac, if you don't know where your JDK bin folderis, run this command to find it:
+- `$ /usr/libexec/java_home`
+After that the output of that command will be the directory of the JDK, which will look like this:
+- `/Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home`
+after that move into that directory and use the keytool command with sudo permission like this:
+- `$ sudo keytool -genkey -v -keystore my-upload-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000`
+**Remember to keep the keystore file private.**
+When you have your the key, now we need to setting up gradle.
+1. Place the `my-upload-key.keystore` file under the `android/app` directory in your proyect.
+2. Edit `~/gradle/gradle.properties` or `android/gradle.properties` and all the following:
+```
+MYAPP_UPLOAD_STORE_FILE=my-upload-key.keystore
+MYAPP_UPLOAD_KEY_ALIAS=my-key-alias
+MYAPP_UPLOAD_STORE_PASSWORD=*****
+MYAPP_UPLOAD_KEY_PASSWORD=*****
+```
+These are going to be global Gradle variables, which we can later use in our Gradle config to sign our app.
+The last configuration step that need to be done is to setup release builds to be signed using upload key. Edit the file `android/app/build.gradle` and add the signing config:
+```
+...
+android {
+    ...
+    defaultConfig { ... }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+    buildTypes {
+        release {
+            ...
+            signingConfig signingConfigs.release
+        }
+    }
+}
+...
+```
+Now run in your terminal:
+```
+$ cd android
+$ ./gradlew bundleRelease
+```
+Gradle's `bundleRelease` will bundle all the JavaScript needed to run your app into the AAB (Android App Bundle).
+Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using the following command in the project root:
+- `$ npx react-native run-android --variant=release`
+Note that --variant=release is only available if you've set up signing as described above.
