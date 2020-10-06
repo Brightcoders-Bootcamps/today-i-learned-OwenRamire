@@ -1143,3 +1143,7 @@ In this case, we are going to start by removing *READ_PHONE_STATE*, *WRITE_EXTER
 </manifest>
 ```
 
+### Tues 6, October 2020 RN.- Native Modules (iOS)
+If React Native doesn't have a module to access a platform API yet. You could reuse some existing Objective-C, Swift or C++ code without using JavaScript. React Native is design also to write real native code to have full power of the platform. 
+The native modules are usually distributed as npm packages, except for the native modules that contain Xcode.
+In React Native documentation we can find an example using the iOS Calendar Module 
