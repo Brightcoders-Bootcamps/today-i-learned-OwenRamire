@@ -1096,3 +1096,50 @@ Gradle's `bundleRelease` will bundle all the JavaScript needed to run your app i
 Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using the following command in the project root:
 - `$ npx react-native run-android --variant=release`
 Note that --variant=release is only available if you've set up signing as described above.
+
+## Week 12
+
+### Mon 5th, October 2020 RN.- Default Permissions
+By default, some permissions are added to your Android APK, and they are:
+- android.permission.INTERNET -Required fot debug mode.
+- android.permission.SYSTEM_ALERT_WINDOW - Required for debug mode.
+- android.permission.READ_PHONE_STATE - Not required for debug or production.
+- android.permission.WRITE_EXTERNAL_STORAGE - Not require for debug or production.
+- android.permission.READ_EXTERNAL_STORAGE - Not required for debug or production.
+In this case, we are going to start by removing *READ_PHONE_STATE*, *WRITE_EXTERNAL_STORAGE0*, and *READ_EXTERNAL_STORAGE* from both production and debug APKs as it is not required in either.
+1. open the `android/app/src/main/AndroidManifest.xml` file
+2. Even though these three permissions are not listed in the manifest they get added in. We add the three permissions with tools:node="remove" attribute.
+```
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.myappid"
++   xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
++   <uses-permission tools:node="remove" android:name="android.permission.READ_PHONE_STATE" />
++   <uses-permission tools:node="remove" android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
++   <uses-permission tools:node="remove" android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme">
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+
+</manifest>
+```
+
