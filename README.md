@@ -1152,3 +1152,11 @@ In React Native documentation we can find an example using the iOS Calendar Modu
 There are tons of native UI widgets out there ready to be used in the latest apps, some of them are part of the platform and others are available as third-party libraries. React Native has the most critical platform component like "ScrollView" and "TextInput", but RN doesn't have all of them. Fortunately, we can wrap up these existing components for seamless integration with your RN application. 
 This part is more advanced, because we assume that you're somewhat familiar with iOS programming . 
 [Go here to watch an example with iOS MapView](https://reactnative.dev/docs/native-components-ios#ios-mapview-example)
+
+### Thur 8th, October 2020 RN.- Linking Libraries
+Not every app uses all the native capabilities, and including the code to support all those feature would impact the binary size. With that in mind, RN exposed many of these features as idependent static libraries.
+Most of the libs it'll be as quick as dragging two files, sometimes a third step will be necessary.
+All those Libraries you can find on the [Libraries](https://github.com/facebook/react-native/tree/master/Libraries) on the React Native repository.
+You decide how do you want to link the library that you need:
+- [Automatic Linking](https://reactnative.dev/docs/linking-libraries-ios#automatic-linking)
+- [Manual Linking](https://reactnative.dev/docs/linking-libraries-ios#manual-linking)
