@@ -1143,7 +1143,12 @@ In this case, we are going to start by removing *READ_PHONE_STATE*, *WRITE_EXTER
 </manifest>
 ```
 
-### Tues 6, October 2020 RN.- Native Modules (iOS)
+### Tues 6th, October 2020 RN.- Native Modules (iOS)
 If React Native doesn't have a module to access a platform API yet. You could reuse some existing Objective-C, Swift or C++ code without using JavaScript. React Native is design also to write real native code to have full power of the platform. 
 The native modules are usually distributed as npm packages, except for the native modules that contain Xcode.
-In React Native documentation we can find an example using the iOS Calendar Module 
+In React Native documentation we can find an example using the iOS Calendar Module
+
+### Wed 7th, October 2020 RN.- Native UI Components (iOS)
+There are tons of native UI widgets out there ready to be used in the latest apps, some of them are part of the platform and others are available as third-party libraries. React Native has the most critical platform component like "ScrollView" and "TextInput", but RN doesn't have all of them. Fortunately, we can wrap up these existing components for seamless integration with your RN application. 
+This part is more advanced, because we assume that you're somewhat familiar with iOS programming . 
+[Go here to watch an example with iOS MapView](https://reactnative.dev/docs/native-components-ios#ios-mapview-example)
