@@ -1160,3 +1160,8 @@ All those Libraries you can find on the [Libraries](https://github.com/facebook/
 You decide how do you want to link the library that you need:
 - [Automatic Linking](https://reactnative.dev/docs/linking-libraries-ios#automatic-linking)
 - [Manual Linking](https://reactnative.dev/docs/linking-libraries-ios#manual-linking)
+
+### Fri 9th, October 2020 RN.- Running on Simulator(iOS)
+When you create a React Native project and run it with `$ npx react-native run-ios` you will see the *iPhone 11* by default. But if you want it  you can change the simulator, to do it, just use the `--simulator` flag and then the device like:
+`$ npx react-native run-ios --simulator="iPhne SE"`
+The device names correspond to the list of devices available in Xcode. You can check it running this command on the console `$ xcrun simctl list devices`
