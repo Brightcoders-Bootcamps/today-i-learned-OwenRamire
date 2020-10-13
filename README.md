@@ -1165,3 +1165,8 @@ You decide how do you want to link the library that you need:
 When you create a React Native project and run it with `$ npx react-native run-ios` you will see the *iPhone 11* by default. But if you want it  you can change the simulator, to do it, just use the `--simulator` flag and then the device like:
 `$ npx react-native run-ios --simulator="iPhne SE"`
 The device names correspond to the list of devices available in Xcode. You can check it running this command on the console `$ xcrun simctl list devices`
+
+### Mon 12th, October 2020 RN.- App Extensions (iOS)
+App extensions let you provide custom functionality and content outside of your main app. There are different types of this extentios and you can check it [here](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1)
+- **Memory use in extensions:**  these extensions have small memory usage limits. It's always highly recommended to test your application on an actual device, and more so when developing app extensions: too frequently, developers find that their extension works fine in the iOS Simulator, only to get user reports that their extension is not loading on actual devices.
+- **Today widget:** Today widget implementations using React Native may work unreliably because the memory usage tends to be too high. You can tell if your Today widget is exceeding the memory limit if it yields the message 'Unable to Load'
