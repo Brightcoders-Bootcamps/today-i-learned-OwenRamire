@@ -1202,3 +1202,7 @@ The async functions can contain zero or more `await` expressions. Await expressi
 ### Wed 14th, October 2020 JS.- ArrayBuffer
 The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. It is an array of bytes, often referred to in other languages as a "byte array".
 You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer.
+
+### Thur 15th, October 2020 JS.- SharedArrayBuffer
+The SharedArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer, similar to the ArrayBuffer object, but in a way that they can be used to create views on shared memory. 
+To share memory using SharedArrayBuffer objects from one agent in the cluster to another, , postMessage and structured cloning is used.  The SharedArrayBuffer object is transmitted to the receiver resulting in a new, private SharedArrayBuffer object in the receiving agent. 
