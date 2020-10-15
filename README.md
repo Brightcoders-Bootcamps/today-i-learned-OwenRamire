@@ -1166,7 +1166,36 @@ When you create a React Native project and run it with `$ npx react-native run-i
 `$ npx react-native run-ios --simulator="iPhne SE"`
 The device names correspond to the list of devices available in Xcode. You can check it running this command on the console `$ xcrun simctl list devices`
 
+## Week 13
+
 ### Mon 12th, October 2020 RN.- App Extensions (iOS)
 App extensions let you provide custom functionality and content outside of your main app. There are different types of this extentios and you can check it [here](https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1)
 - **Memory use in extensions:**  these extensions have small memory usage limits. It's always highly recommended to test your application on an actual device, and more so when developing app extensions: too frequently, developers find that their extension works fine in the iOS Simulator, only to get user reports that their extension is not loading on actual devices.
 - **Today widget:** Today widget implementations using React Native may work unreliably because the memory usage tends to be too high. You can tell if your Today widget is exceeding the memory limit if it yields the message 'Unable to Load'
+
+### Tues 13th, October 2020 JS.- async function
+An async function is a function declared with the `async` keyword. This functions are instances of the `AsyncFunction` constructor, and the `await` keyword is permitted within them. The `async` and `await` keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+Example:
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds(); 
+  // the constant result will wait what the resolveAfter2Seconds function will return us and then will continue with the next line of code
+  console.log(result);
+  // expected output: "resolved"
+}
+
+asyncCall();
+```
+The async functions can contain zero or more `await` expressions. Await expressions **suspend progress through an async function, yielding control and subsequently resuming progress**  
+
+**NOTE:**The `await` keyword is only valid **inside async functions**. If you use it outside of an async function's body, you will get a `SyntaxError`
+
