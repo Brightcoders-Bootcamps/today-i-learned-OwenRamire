@@ -1199,3 +1199,6 @@ The async functions can contain zero or more `await` expressions. Await expressi
 
 **NOTE:**The `await` keyword is only valid **inside async functions**. If you use it outside of an async function's body, you will get a `SyntaxError`
 
+### Wed 14th, October 2020 JS.- ArrayBuffer
+The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. It is an array of bytes, often referred to in other languages as a "byte array".
+You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer.
