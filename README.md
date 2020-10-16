@@ -1205,4 +1205,11 @@ You cannot directly manipulate the contents of an ArrayBuffer; instead, you crea
 
 ### Thur 15th, October 2020 JS.- SharedArrayBuffer
 The SharedArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer, similar to the ArrayBuffer object, but in a way that they can be used to create views on shared memory. 
-To share memory using SharedArrayBuffer objects from one agent in the cluster to another, , postMessage and structured cloning is used.  The SharedArrayBuffer object is transmitted to the receiver resulting in a new, private SharedArrayBuffer object in the receiving agent. 
+To share memory using SharedArrayBuffer objects from one agent in the cluster to another, , postMessage and structured cloning is used.  The SharedArrayBuffer object is transmitted to the receiver resulting in a new, private SharedArrayBuffer object in the receiving agent.
+
+### Fri 16th, October 2020 JS.- JSON
+The **JSON** object contains methods for parsing JavaScript Object Notation (JSON) and converting values to JSON.
+JSON is a syntax for serializing objects, arrays, numbers, strings, booleans, and null. It is based upon JavaScript syntax but is distinct from it: some JavaScript is not JSON.
+##### Static methods
+- **JSON.parse(text[, reviver])** -> parse the string *text* as JSON, optionally transform the produed value and its properties, and return the value. 
+- **JSON.stringify(value[, replacer[, space]])** -> return a *JSON string* corresponding to the speified value, optionally including only certain properties or replacing property values in  a user-defined manner. 
