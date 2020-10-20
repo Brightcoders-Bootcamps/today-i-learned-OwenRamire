@@ -1267,3 +1267,37 @@ ReactDOM.render(
 ```
 Be careful about the meaning of `this` in JSX callbacks. In JS, class methods are not bound by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` then the function is actually called.
 Generally, if you refer to a method without () after it, such as `onClick={this.handleClick}`, you should bind that method.
+
+### Tues 20th, October 2020 React.- Conditional Rendering
+Working with React, you can create distinct components that encapsulate behavior you need. So, you canrender only some of them depending of your application's state.
+It works at the same way conditions in JavaScript like `if` or `conditional operator`. With that in mind let's see this example:
+```javascript
+function UserGreeting(props) {
+   return <h1>Welcome back!</h1>;
+}
+
+function GuestGreeting(props) {
+   return <h1>Please sign up.</h1>;
+}
+
+/*
+We’ll create a Greeting component that displays either of these components depending on whether a user is logged in
+*/
+
+function Greeting(props) {
+   const isLoggedIn = props.isLoggedIn;
+   if(isLoggedIn) {
+      return <UserGreeting />
+   }
+   return <GuestGreeting />
+}
+```
+We can change a little the component Greeting using conditional operator that it will be the same:
+```javascript
+function Greeting(props) {
+   const isLoggedIn = props.isLoggedIn;
+   return isLoggedIn ? <UserGreeting /> : <GuestGreeting />;
+}
+```
+
+And if you want you can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn’t change.
