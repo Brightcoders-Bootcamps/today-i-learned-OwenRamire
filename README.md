@@ -1197,7 +1197,7 @@ asyncCall();
 ```
 The async functions can contain zero or more `await` expressions. Await expressions **suspend progress through an async function, yielding control and subsequently resuming progress**  
 
-**NOTE:**The `await` keyword is only valid **inside async functions**. If you use it outside of an async function's body, you will get a `SyntaxError`
+**NOTE:** The `await` keyword is only valid **inside async functions**. If you use it outside of an async function's body, you will get a `SyntaxError`
 
 ### Wed 14th, October 2020 JS.- ArrayBuffer
 The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. It is an array of bytes, often referred to in other languages as a "byte array".
@@ -1212,4 +1212,58 @@ The **JSON** object contains methods for parsing JavaScript Object Notation (JSO
 JSON is a syntax for serializing objects, arrays, numbers, strings, booleans, and null. It is based upon JavaScript syntax but is distinct from it: some JavaScript is not JSON.
 ##### Static methods
 - **JSON.parse(text[, reviver])** -> parse the string *text* as JSON, optionally transform the produed value and its properties, and return the value. 
-- **JSON.stringify(value[, replacer[, space]])** -> return a *JSON string* corresponding to the speified value, optionally including only certain properties or replacing property values in  a user-defined manner. 
+- **JSON.stringify(value[, replacer[, space]])** -> return a *JSON string* corresponding to the speified value, optionally including only certain properties or replacing property values in  a user-defined manner.
+
+## Week 14
+
+### Mon 19th, October 2020 React.- Handling Events
+Handling events with React elements is very similar to handling events on DOM elements. The differences are: 
+- React events are named using camelCase
+- With JSX you pass a function as the event handler, rather than a string
+example: 
+- With HTML: 
+```javascript
+<button onclick="activateLasers()">
+   Activate Lasers
+</button>
+```
+- With React:
+```javascript
+<button onClick={activateLasers}>
+   Activate Lasers
+</button>
+```
+When using React, you generally don’t need to call addEventListener to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+When you define a component using an ES6 class, a common pattern is for an event handler to be a method on the class.
+```javascript
+class Toggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Toggle />,
+  document.getElementById('root')
+);
+```
+Be careful about the meaning of `this` in JSX callbacks. In JS, class methods are not bound by default. If you forget to bind `this.handleClick` and pass it to `onClick`, `this` will be `undefined` then the function is actually called.
+Generally, if you refer to a method without () after it, such as `onClick={this.handleClick}`, you should bind that method.
