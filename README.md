@@ -1301,3 +1301,54 @@ function Greeting(props) {
 ```
 
 And if you want you can use variables to store elements. This can help you conditionally render a part of the component while the rest of the output doesn’t change.
+
+### Wed 21st, October 2020 React.- List and Keys
+Let's review how yo transform list in JS. We use the `map()` function to double thier values:
+```javascript
+const numbers = [1,2,3,4,5];
+const double = numbers.map((number) => number * 2);
+console.log(double); // the output will be = [2, 4, 5, 6, 8, 10];
+```
+In React, transforming arrays into list of elements is nearly identical. We can build collections of elements and include them in JSX using `{}`.
+So, now we loop through the `numbers` array using `map()` and return a `<li>` element:
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) => <li>{number}</li>);
+
+// We will see the list of numbers on the browser
+ReactDOM.render(
+   <ul>{listItems}</ul>,
+   document.getElementById('root')
+);
+```
+
+We usually would render lists inside a component:
+```javascript
+function NumberList(props) {
+   const  {numbers} = props;
+   const listItems = numbers.map((number) => {
+	<li>{number}</li>;
+   });
+   return <ul>{listItems}</ul>;
+}
+
+const numbers = [1, 2, 3, 4, 5];
+
+ReactDOM.render(
+   <NumberList numbers={numbers} />,
+   document.getElementById('root');
+);
+
+```
+After run this code, you'll be given a **WARNING** that a key should be provided for list items. To prevent this **warning**, we need a *key*.
+This `key` help React identify which items hace changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity: 
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+    {number}
+  </li>
+); 
+/*The best way to pick a key is to use a string that uniquely identifies a list item among its sibling*/
+```
