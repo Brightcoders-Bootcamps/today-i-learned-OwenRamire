@@ -1684,3 +1684,10 @@ Let's see how we walk through the thought process of building with React
 3. Identify the minimal (but complete) representation of UI state
 4. Identify where your state should live
 5. Add inverse data flow
+
+### Wed 28th, October 2020 React.- Accessibility
+Web accessibility is the design and creation of websites that can be used by everyone. Accessibility support is necessary to allow assistive technology to interpret web pages.
+React fully supports building accessible websites, often by using standard HTML techniques.
+##### Standards and Guidelines
+- WCAG ([Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)): Provides guidelines for creating accessible web sites
+- WAI-ARIA ([Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria)): it is a document that contains techniques for building fully accessible JavaScript widgets.
