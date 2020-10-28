@@ -1674,3 +1674,13 @@ function WelcomeDialog() {
 }
 ```
 **Props and composition give you all the flexibility you need to customize a component’s look and behavior in an explicit and safe way. Remember that components may accept arbitrary props, including primitive values, React elements, or functions.**
+
+### Tues 27th, October 2020 React.- Thinking in React
+React is the premier way to build big, fast Web apps with JavaScript and scale very well.
+One of the many great parts of React is how it makes you think about apps as you build them.
+Let's see how we walk through the thought process of building with React
+1. Break the UI into a component hierarchy
+2. Build a static version in React
+3. Identify the minimal (but complete) representation of UI state
+4. Identify where your state should live
+5. Add inverse data flow
