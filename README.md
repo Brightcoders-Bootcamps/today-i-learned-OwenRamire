@@ -1616,3 +1616,61 @@ class Calculator extends React.Component {
 }
 ```
 
+## Week 15
+
+### Mon 26th, October 2020 React.- Composition vs Inheritance
+React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components.
+We will consider a few problems where developers new to React often reach for inheritance, and show how we can solve them with composition.
+##### Containment
+Some components don’t know their children ahead of time. Especially for components like `Sidebar` or `Dialog` that represent generic "boxes".
+React recommend that such components use the special `children` prop to pass children elements:
+```javascript
+function FancyBorder(props) {
+   return (
+      <div className={'FancyBorder FancyBorder-' + props.color}>
+         {props.children}
+      </div>
+   );
+}
+
+/*
+This lets other components pass arbitrary children to them by nesting the JSX
+*/
+
+function WelcomeDialog() {
+   return (
+      <FancyBorder color="blue">
+         <h1 className="dialog-title">welcome</h1>
+         <p className="Dialog-message">
+            Thank you for visiting our spacecraft!
+         </p>
+      </FancyBorder>
+   );
+}
+```
+##### Specialization
+Sometimes we think about components as being “special cases” of other components. For example, we might say that a WelcomeDialog is a special case of Dialog.
+In React, this is also achieved by composition, where a more “specific” component renders a more “generic” one and configures it with props:
+```javascript
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        {props.title}
+      </h1>
+      <p className="Dialog-message">
+        {props.message}
+      </p>
+    </FancyBorder>
+  );
+}
+
+function WelcomeDialog() {
+  return (
+    <Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
+  );
+}
+```
+**Props and composition give you all the flexibility you need to customize a component’s look and behavior in an explicit and safe way. Remember that components may accept arbitrary props, including primitive values, React elements, or functions.**
