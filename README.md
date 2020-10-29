@@ -1691,3 +1691,80 @@ React fully supports building accessible websites, often by using standard HTML 
 ##### Standards and Guidelines
 - WCAG ([Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-guidelines/wcag/)): Provides guidelines for creating accessible web sites
 - WAI-ARIA ([Web Accessibility Initiative - Accessible Rich Internet Applications](https://www.w3.org/WAI/standards-guidelines/aria)): it is a document that contains techniques for building fully accessible JavaScript widgets.
+
+### Thur 29th, October 2020 React.- Code-splitting
+##### Bundling
+Bundling is the process of following imported files and merging them into a single file: a "bundle". This bundle can them be included on a webpage to load an entire app at once
+Example:
+```javascript
+// App.js
+import { add } from './math.js';
+
+console.log(add(16,26)); // 42
+
+// math.js
+export function add(a, b) {
+   return a + b;
+} 
+```
+Bundle: 
+```javascript
+function add(a, b) {
+   return a + b;
+}
+
+console.log(add(16, 26));
+```
+##### Code splitting
+Bundling is great, but as your app grows, your bundle will grow too. To avoid large bundle, it's good to get ahead fo the problem and start "splitting" your bundle. Code-Splitting is a feature supported by bundlers like Webpack, Rollup and Browserify which cn create multiple bundles that can be dynamically loaded at runtime.
+Code-Splitting your app can help your "lazy-load" just the things that are currently neededby the user. 
+The best way to introduce code-splitting into your app is through the dynamic `import()` synta.
+- Before:
+```javascript
+import {add} from './math';
+
+console.log(add(16,26));
+```
+- After:
+```javascript
+import("./math").then(math => {
+   console.log(math.add(16, 26));
+});
+```
+###### React.lazy
+`React.lazy` function lets you render dynamic import as a regular component.
+- Before: 
+```javascript
+import OtherComponent from './OtherComponent';
+```
+- After: 
+```javascript
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+/*
+React.lazy takes a function that must call a dinamic import(). This most return a Promise
+which resolves to a module with a default export containing a React component
+*/
+```
+This will automatically load the bundle containing the `OtherComponent` when this component is first rendered.
+
+The lazy component should be rendered inside a `Suspense` component. This component allows us to show some fallback content while we are waiting gor the lazy component to load.
+
+```javascript
+import React, { Suspense } from 'react';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+/*
+The fallback prop accepts any React elements that you want to render while waiting for hte component to load. 
+*/
+```
