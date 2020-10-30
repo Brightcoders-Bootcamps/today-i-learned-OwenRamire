@@ -1768,3 +1768,30 @@ function MyComponent() {
 The fallback prop accepts any React elements that you want to render while waiting for hte component to load. 
 */
 ```
+
+### Fri 30th, October 2020 React.- TypeChecking with PropTypes
+As your app grows, you can catch a lot of bugs with typechecking. You can use extensions like Flow or TypeScript to typecheck your app. React has some built-in typechecking abilities, to run typechecking on the props for a component, you can assign the special `propTypes` property:
+```javascript
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+class Greeting extends Component {
+   constructor(props) {
+      super(props);
+   }
+   render() {
+      return (
+         <h1>Hello, {this.props.name}</h1>
+      );
+   }
+}
+
+Greeting.propTypes = {
+   name: PropTypes.string
+};
+
+// You can use function components instead class components
+```
+`PropTypes` exports a range of validators that can be used to maje sure the data you receive is valid. For example: 
+If we use `PropTypes.string`. When an invalid value is provided for a prop, a warning will be shown in the JS console.
+[See here all the examples](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
