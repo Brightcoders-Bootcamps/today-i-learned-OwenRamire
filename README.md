@@ -1795,3 +1795,30 @@ Greeting.propTypes = {
 `PropTypes` exports a range of validators that can be used to maje sure the data you receive is valid. For example: 
 If we use `PropTypes.string`. When an invalid value is provided for a prop, a warning will be shown in the JS console.
 [See here all the examples](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes)
+
+## Week 16
+
+### Mon 2nd, November 2020 React.- ReactDOM
+If you load React from a `<script>` tag, these top-level APIs are available on the ReactDOM global. If you use ES6 with npm, you can write `import ReactDOM from 'react-dom'`. If you use ES5 with npm, you can write `var ReactDOM = require('react-dom')`.
+React-dom package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React modelif you need to. Most of your components should not need to use this module.
+- render(): Render a React element into the DOM in the supplied container and return a reference to the component:
+ ```javascript
+ ReactDOM.render(element, container[, callback])
+ ```
+- hydrate(): same as render(), but is used to hydrate a container whose HTML contents were rendered by ReactDOMServer.
+ ```javascript
+ ReactDOM.hydrate(element, container[, callback])
+ ```
+- unmountComponentAtNode(): Remove a mounted React component from the DOM and clean up its event handlers and state.
+ ```javascript
+ ReactDOM.unmountComponentAtNode(container)
+ ```
+- findDOMNode(): If this component has been mounted into the DOM, this returns the corresponding native browser DOM element.
+  ```javascript
+  ReactDOM.findDOMNode(component)
+  ```
+- createPortal(): Creates a portal. Portals provide a way to render children into a DOM node that exists outside the hierarchy of the DOM component.
+  ```javascript
+  ReactDOM.createPortal(child,container)
+  ```
+
