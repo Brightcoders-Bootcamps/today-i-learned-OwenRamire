@@ -1822,3 +1822,105 @@ React-dom package provides DOM-specific methods that can be used at the top leve
   ReactDOM.createPortal(child,container)
   ```
 
+### Tues 3rd, November 2020 React.- Context
+Context provides a way to pass data through the component tree without having to pass props down manually at every level
+When you use React, the data is passed top-down (parent to child) via props, but this can be cumbersome for certain types od props (e.g. locale preference, UI theme) that are required by many components within an application. Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+
+Context is designed to share data that can be considered "global" for a tree of React component, such as the current authenticated user, theme, or preferred language.
+The code below we manually thread through a "theme" prop in order to style the Button component:
+```javascript
+class App extends React.Component {
+  render() {
+    return <Toolbar theme="dark" />;
+  }
+}
+
+function Toolbar(props) {
+  // The Toolbar component must take an extra "theme" prop
+  // and pass it to the ThemedButton. This can become painful
+  // if every single button in the app needs to know the theme
+  // because it would have to be passed through all components.
+  return (
+    <div>
+      <ThemedButton theme={props.theme} />
+    </div>
+  );
+}
+
+class ThemedButton extends React.Component {
+  render() {
+    return <Button theme={this.props.theme} />;
+  }
+}
+```
+
+With context, we can avoid passing props through intermediate elements:
+
+```javascript
+/*
+Context lets us pass a value deep into the component tree
+without explicitly threading it through every component.
+
+Create a context dor the current theme (with "light" as the default).
+*/
+
+import React, {Component} from 'react';
+
+const ThemeContext = React.createContext('light');
+
+/*
+   React.createContext creates a Context object. When React renders a component
+   that subscribe to this Context object it will read the current context value from
+   the closest matching Provider above it in the tree
+*/
+
+
+class App extends Component {
+  render() {
+    /*
+    	Use a Provider to pass the current theme to the tree below.
+
+	Any component can read it, no matter how deep it is. 
+
+	In this example, we're passing "dark as the current value"
+    */
+    return (
+      /*
+         ThemeContext.Provider allows consuming components to subscribe
+	 to context changes.
+
+	 One Provider can be connected to many consumers
+      */
+      <ThemeContext.Provider value="dark">
+        <Toolbar />
+      </ThemeContext.Provider>
+    );
+  }
+}
+
+/*
+   A component in the middle doesn´t have to pass the 
+   theme down explicitly anymore.
+*/
+
+const Toolbar = () => {
+  return (
+    <div>
+      <ThemeButton />
+    </div>
+  );
+}
+
+class ThemeButton extends Component {
+  /*
+     Assign a contextType to read the current theme context.
+     React will find the closest theme Provider above and use its value.
+     Remember that the current theme is "dark"
+  */
+  static contextType = ThemeContext;
+  render() {
+    return <Button theme={this.context} />;
+  }
+}
+```
+Context is primarily used when some data needs to be accesible by many components at different nesting levels. 
