@@ -1923,4 +1923,22 @@ class ThemeButton extends Component {
   }
 }
 ```
-Context is primarily used when some data needs to be accesible by many components at different nesting levels. 
+Context is primarily used when some data needs to be accesible by many components at different nesting levels.
+
+### Wed 4th, November 2020 JavaScript.- EventListener
+`EventListener` represents an object that can handle an event dispatched by an EventTarget object.
+**Example: **
+
+##### HTML
+`<buttonid="btn">Click here!</button>`
+
+##### JavaScript
+
+```javascript
+const buttonElement = document.getElementById('btn');
+ 
+// Add a handler for the 'click' evenet by providing a callback function.
+// Whenever the element is clicked, a pop-up with "Element clicked!!" will appear.
+
+buttonElement,addEventListener('click', e => alert('Element clicked through function!'));
+```
