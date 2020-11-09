@@ -2017,3 +2017,61 @@ const ref = React.createRef();
 <FancyButton ref={ref}>Click me!</FancyButton>
 ```
 This way, components using FancyButton can get a ref to the underlying button DOM node and access it if necessary—just like if they used a DOM button directly.
+
+## Week 17
+
+### Mon 9th, November 2020 React.- Fragment
+A common pattern in React is for a component to return multiple elements. Fragments let you group a list of children without adding extra nodes to the DOM.
+```javascript
+render() {
+  return (
+    <React.Fragment>
+      <ChildA />
+      <ChildB />
+      <ChildC />
+    </React.Fragment>
+  );
+}
+```
+A common pattern is for a component to return a list of children.
+```javascript
+import React, {Component} from 'react';
+
+class Table extends Component {
+  render() {
+    return (
+      <table>
+        <tr>
+	  <Column />
+	</tr>
+      </table>
+    );
+  }
+}
+
+// Column component would need to return multiple <td> elements
+// in order for the rendered HTML to be valid. If a parent div was used
+// inside the render() of <Column />, then the resulting HTML will be invalid
+
+class Column extends Component {
+  render() {
+    return (
+      <div>
+        <td>Hello</td>
+	<td>World</td>
+      </div>
+    );
+  }
+}
+
+// The result in Table component:
+<table>
+  <tr>
+    <div>
+      <td>Hello</td
+      <td>World</td>
+    </div>
+  </tr>
+</table>
+
+```
