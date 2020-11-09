@@ -1989,3 +1989,31 @@ The you can use it as a regular component:
 Error boundaries work like a JavaScript `catch {}` block, but for components.
 Only class components can be error boundaries.
 Note that **error boundaries only catch errors in the components below them in the tree**
+
+### Fri 6th, November 2020 React.- Forwarding Refs
+Is a technique for automatically passing a ref through a component to one of its children. This is typically not necessary for most components in the application. It can be useful for some components, especially in reusable component libraries.
+
+Consider a `FancyButton` component that renders the native `Button` DOM element:
+```javascript
+function FancyButton(props) {
+  return (
+    <button className="FancyButton">{props.children}</button>
+  );
+}
+```
+React components hide their implementation details, including their rendered output. Other components **using FancyButton usually will not need to** obtain a ref to the inner button DOM element.
+Although such encapsulation is desirable for application-level components like FeedStory or Comment, it can be inconvenient for highly reusable “leaf” components like FancyButton or MyTextInput. These components tend to be used throughout the application in a similar manner as a regular DOM button and input, and accessing their DOM nodes may be unavoidable for managing focus, selection, or animations.
+
+**Ref forwarding is an opt-in feature that lets some components take a ref they receive, and pass it further down (in other words, “forward” it) to a child.**
+
+In this example below, `FancyButton` uses `React.forwardRef` to obtain the `ref` passed to it, and then forward it to the DOM `button` that it renders:
+```javascript
+const FancyButton = React.forwardRef((props, ref) => (
+  <button className="FancyButton">{props.children}</button>
+));
+
+// you can now get a ref directly to the DOM button:
+const ref = React.createRef();
+<FancyButton ref={ref}>Click me!</FancyButton>
+```
+This way, components using FancyButton can get a ref to the underlying button DOM node and access it if necessary—just like if they used a DOM button directly.
