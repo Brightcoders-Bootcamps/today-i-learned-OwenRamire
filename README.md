@@ -2073,5 +2073,96 @@ class Column extends Component {
     </div>
   </tr>
 </table>
-
 ```
+
+### Tues 10th, November 2020 React.- Higher-Order Component
+Higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature.
+High.order component **is a function that takes a component and return a new component.**
+```javascript
+const EnhanceComponent = higherOrderComponent(WrappedComponent);
+
+/*
+   Whereas a component transforms props into UI,
+   a higher-order component transforms a component into another component.
+*/
+```
+HOCs are common in third-party React libraries, such as Redux’s connect and Relay’s createFragmentContainer.
+Now, we'll discuss why higher-order components are useful, and how write your own.
+Components are the primary unit of code reuse in React. However, you'll find that some patterns aren't a straightforward fit for traditional components.
+For example. Imagine that you have a `CommentList` component that subscribes to an external data source to render a list of comments:
+```javascript
+class CommentList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      // "DataSource" is some global data source
+      comments: DataSource.getComments()
+    };
+  }
+
+  componentDidMount() {
+    // Subscribe to changes
+    DataSource.addChangeListener(this.handleChnage);
+  }
+
+  componentWillUnmount() {
+    // Clean up listener
+    DataSource.removeChangeListener(this.handleChange);
+  }
+
+  handleChange() {
+    // Update component state whenever the data source changes
+    this.setState({
+      comments: DataSource.getComments()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.comments.map(() => (
+	  <Comment comment={comment} key={comment.id} />
+	))}
+      </div>
+    );
+  }
+}
+```
+Later, you write a component for subscribing to a single blog post, which follows a similar pattern:
+```javascript
+class BlogPost extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      blogPost: DataSource.getBlogPost(props.id)
+    };
+  }
+
+  componentDidMount() {
+    DataSource.addChangeListener(this.handleChange);
+  }
+
+  componentWillUnmount() {
+    DataSource.removeChangeListener(this.handleChange);
+  }
+
+  handleChange() {
+    this.setState({
+      blogPost: DataSource.getBlogPost(this.props.id)
+    });
+  }
+
+  render() {
+    return <TextBlock text={this.state.blogPost} />;
+  }
+}
+```
+`CommentList` and `BlogPost` aren't identical, they call different methods on `DataSource`, and they render different output. But muxh of their implementation is the same:
+- On mount, add a change listener to DataSource
+- Inside the listener, call `setState` whenever the data source changes
+- On unmount, remove the changes
+- On unmount, remove the change listener.
+Now imagine this on a large app, this same pattern of subscribing to DataSource and calling setState will occur over and over again. With Higher-Order Components allow us to define the logic in a single place and share it across many components.
+
